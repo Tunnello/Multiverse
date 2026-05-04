@@ -5,6 +5,7 @@ import { GraphCanvas } from "@/components/GraphCanvas";
 import { TopicTabs } from "@/components/TopicTabs";
 import { YearSlider } from "@/components/YearSlider";
 import { NodeDrawer } from "@/components/NodeDrawer";
+import { Sidebar } from "@/components/Sidebar";
 import { filterGraphByYear } from "@/lib/filterByYear";
 import { GraphDocumentSchema } from "@/lib/graphSchema";
 import { ManifestSchema } from "@/lib/manifestSchema";
@@ -61,7 +62,7 @@ export default function Home() {
   return (
     <div className="flex flex-col h-screen bg-zinc-900 text-white">
       <header className="flex items-center justify-between px-4 py-3 border-b border-zinc-700 bg-zinc-950">
-        <h1 className="text-lg font-bold">观点对撞机</h1>
+        <h1 className="text-lg font-bold">{doc.topic.title}</h1>
         <TopicTabs
           manifest={manifest}
           selectedId={selectedTopicId}
@@ -70,12 +71,15 @@ export default function Home() {
         <div className="w-[100px]" />
       </header>
 
-      <div className="flex-1 relative">
-        <GraphCanvas
-          nodes={filtered.nodes as GraphNode[]}
-          edges={filtered.edges as GraphEdge[]}
-          onSelect={setSelectedNodeId}
-        />
+      <div className="flex-1 flex overflow-hidden relative">
+        <div className="flex-1 relative min-w-0">
+          <GraphCanvas
+            nodes={filtered.nodes as GraphNode[]}
+            edges={filtered.edges as GraphEdge[]}
+            onSelect={setSelectedNodeId}
+          />
+        </div>
+        <Sidebar doc={doc} />
       </div>
 
       <footer className="border-t border-zinc-700 bg-zinc-950 px-4 py-3">

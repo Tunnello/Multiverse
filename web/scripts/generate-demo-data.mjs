@@ -7,12 +7,14 @@ const root = join(__dirname, "..");
 const dataDir = join(root, "public", "data");
 mkdirSync(dataDir, { recursive: true });
 
+const topicDefs = [
+  { id: "topic-1", label: "合成议题 Alpha", slug: "topic-1", title: "合成议题 Alpha" },
+  { id: "topic-2", label: "合成议题 Beta", slug: "topic-2", title: "合成议题 Beta" },
+  { id: "topic-3", label: "合成议题 Gamma", slug: "topic-3", title: "合成议题 Gamma" },
+];
+
 const manifest = {
-  topics: [
-    { id: "topic-1", label: "问题 1", dataUrl: "/data/topic-1.json" },
-    { id: "topic-2", label: "问题 2", dataUrl: "/data/topic-2.json" },
-    { id: "topic-3", label: "问题 3", dataUrl: "/data/topic-3.json" },
-  ],
+  topics: topicDefs.map((t) => ({ id: t.id, label: t.label, dataUrl: `/data/${t.id}.json` })),
 };
 
 function makeTopic(slug, title, nodeOffset) {
@@ -55,9 +57,9 @@ function makeTopic(slug, title, nodeOffset) {
 }
 
 const topics = [
-  makeTopic("topic-1", "合成议题 Alpha", 0),
-  makeTopic("topic-2", "合成议题 Beta", 100),
-  makeTopic("topic-3", "合成议题 Gamma", 200),
+  makeTopic(topicDefs[0].slug, topicDefs[0].title, 0),
+  makeTopic(topicDefs[1].slug, topicDefs[1].title, 100),
+  makeTopic(topicDefs[2].slug, topicDefs[2].title, 200),
 ];
 
 writeFileSync(join(dataDir, "manifest.json"), JSON.stringify(manifest, null, 2), "utf8");

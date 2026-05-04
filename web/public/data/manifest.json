@@ -2,17 +2,17 @@
   "topics": [
     {
       "id": "topic-1",
-      "label": "问题 1",
+      "label": "合成议题 Alpha",
       "dataUrl": "/data/topic-1.json"
     },
     {
       "id": "topic-2",
-      "label": "问题 2",
+      "label": "合成议题 Beta",
       "dataUrl": "/data/topic-2.json"
     },
     {
       "id": "topic-3",
-      "label": "问题 3",
+      "label": "合成议题 Gamma",
       "dataUrl": "/data/topic-3.json"
     }
   ]
