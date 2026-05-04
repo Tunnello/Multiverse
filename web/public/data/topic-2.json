@@ -1,0 +1,187 @@
+{
+  "schemaVersion": "1.0",
+  "topic": {
+    "title": "合成议题 Beta",
+    "slug": "topic-2",
+    "sourceNote": "synthetic_fixture"
+  },
+  "timeRange": {
+    "minYear": 2016,
+    "maxYear": 2026
+  },
+  "nodes": [
+    {
+      "id": "topic-2-n100",
+      "label": "作者1",
+      "camp": "academic",
+      "summary": "合成议题 Beta：摘要 1（合成数据）。",
+      "quote": "金句 1：观点要鲜明。",
+      "author": {
+        "name": "用户_topic-2_0",
+        "badgeText": "认证"
+      },
+      "voteUpCount": 100,
+      "publishedAt": "2016-05-01T12:00:00.000Z",
+      "predictionScore": {
+        "predictionDeviation": 0
+      },
+      "contentType": "Answer"
+    },
+    {
+      "id": "topic-2-n101",
+      "label": "作者2",
+      "camp": "radical",
+      "summary": "合成议题 Beta：摘要 2（合成数据）。",
+      "quote": "金句 2：观点要鲜明。",
+      "author": {
+        "name": "用户_topic-2_1",
+        "badgeText": ""
+      },
+      "voteUpCount": 93,
+      "publishedAt": "2018-05-01T12:00:00.000Z",
+      "predictionScore": {
+        "predictionDeviation": 0.1
+      },
+      "contentType": "Answer"
+    },
+    {
+      "id": "topic-2-n102",
+      "label": "作者3",
+      "camp": "experiential",
+      "summary": "合成议题 Beta：摘要 3（合成数据）。",
+      "quote": "金句 3：观点要鲜明。",
+      "author": {
+        "name": "用户_topic-2_2",
+        "badgeText": "认证"
+      },
+      "voteUpCount": 86,
+      "publishedAt": "2020-05-01T12:00:00.000Z",
+      "predictionScore": {
+        "predictionDeviation": 0.2
+      },
+      "contentType": "Answer"
+    },
+    {
+      "id": "topic-2-n103",
+      "label": "作者4",
+      "camp": "stakeholder",
+      "summary": "合成议题 Beta：摘要 4（合成数据）。",
+      "quote": "金句 4：观点要鲜明。",
+      "author": {
+        "name": "用户_topic-2_3",
+        "badgeText": ""
+      },
+      "voteUpCount": 79,
+      "publishedAt": "2022-05-01T12:00:00.000Z",
+      "predictionScore": {
+        "predictionDeviation": 0.30000000000000004
+      },
+      "contentType": "Answer"
+    },
+    {
+      "id": "topic-2-n104",
+      "label": "作者5",
+      "camp": "academic",
+      "summary": "合成议题 Beta：摘要 5（合成数据）。",
+      "quote": "金句 5：观点要鲜明。",
+      "author": {
+        "name": "用户_topic-2_4",
+        "badgeText": "认证"
+      },
+      "voteUpCount": 72,
+      "publishedAt": "2024-05-01T12:00:00.000Z",
+      "predictionScore": {
+        "predictionDeviation": 0.4
+      },
+      "contentType": "Answer"
+    },
+    {
+      "id": "topic-2-n105",
+      "label": "作者6",
+      "camp": "radical",
+      "summary": "合成议题 Beta：摘要 6（合成数据）。",
+      "quote": "金句 6：观点要鲜明。",
+      "author": {
+        "name": "用户_topic-2_5",
+        "badgeText": ""
+      },
+      "voteUpCount": 65,
+      "publishedAt": "2016-05-01T12:00:00.000Z",
+      "predictionScore": {
+        "predictionDeviation": 0
+      },
+      "contentType": "Answer"
+    },
+    {
+      "id": "topic-2-n106",
+      "label": "作者7",
+      "camp": "experiential",
+      "summary": "合成议题 Beta：摘要 7（合成数据）。",
+      "quote": "金句 7：观点要鲜明。",
+      "author": {
+        "name": "用户_topic-2_6",
+        "badgeText": "认证"
+      },
+      "voteUpCount": 58,
+      "publishedAt": "2018-05-01T12:00:00.000Z",
+      "predictionScore": {
+        "predictionDeviation": 0.1
+      },
+      "contentType": "Answer"
+    },
+    {
+      "id": "topic-2-n107",
+      "label": "作者8",
+      "camp": "stakeholder",
+      "summary": "合成议题 Beta：摘要 8（合成数据）。",
+      "quote": "金句 8：观点要鲜明。",
+      "author": {
+        "name": "用户_topic-2_7",
+        "badgeText": ""
+      },
+      "voteUpCount": 51,
+      "publishedAt": "2020-05-01T12:00:00.000Z",
+      "predictionScore": {
+        "predictionDeviation": 0.2
+      },
+      "contentType": "Answer"
+    }
+  ],
+  "edges": [
+    {
+      "id": "topic-2-e1",
+      "source": "topic-2-n100",
+      "target": "topic-2-n101",
+      "kind": "clash",
+      "label": "方法论对立"
+    },
+    {
+      "id": "topic-2-e2",
+      "source": "topic-2-n101",
+      "target": "topic-2-n102",
+      "kind": "agree",
+      "label": "前提一致"
+    },
+    {
+      "id": "topic-2-e3",
+      "source": "topic-2-n102",
+      "target": "topic-2-n103",
+      "kind": "complement",
+      "label": "补充案例"
+    },
+    {
+      "id": "topic-2-e4",
+      "source": "topic-2-n103",
+      "target": "topic-2-n104",
+      "kind": "clash",
+      "label": "价值判断冲突"
+    },
+    {
+      "id": "topic-2-e5",
+      "source": "topic-2-n100",
+      "target": "topic-2-n104",
+      "kind": "clash",
+      "label": "跨阵营总争议"
+    }
+  ]
+}
