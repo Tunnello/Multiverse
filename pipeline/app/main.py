@@ -2,6 +2,13 @@ import json
 import os
 from pathlib import Path
 
+from dotenv import load_dotenv
+
+load_dotenv(
+    Path(__file__).parent.parent / ".env",
+    override=False,
+)
+
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
@@ -56,7 +63,10 @@ async def dev_zhihu_search(body: SearchRequest):
 
 @app.post("/dev/build_graph")
 async def dev_build_graph(body: BuildGraphRequest):
-    """Local-only: search Zhihu, build graph via LLM, write JSON to pipeline/out/. Requires ZHIHU_BEARER and OPENAI_API_KEY env vars."""
+    """Local-only: search Zhihu, build graph via LLM, write JSON to pipeline/out/.
+    Requires ZHIHU_BEARER. LLM credentials depend on LLM_PROVIDER:
+    - deepseek (default): DEEPSEEK_API_KEY
+    - openai: OPENAI_API_KEY"""
     bearer = os.getenv("ZHIHU_BEARER")
     if not bearer:
         raise HTTPException(500, "ZHIHU_BEARER not set")

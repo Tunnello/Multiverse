@@ -26,7 +26,8 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload --port 8000
 ```
 
-Set `ZHIHU_BEARER` env var for search API access.
+Set `ZHIHU_BEARER` and `DEEPSEEK_API_KEY` env vars (or create `pipeline/.env`).
+See [pipeline/README.md](pipeline/README.md) for LLM model options and configuration details.
 
 ### Copy pipeline output to frontend
 
