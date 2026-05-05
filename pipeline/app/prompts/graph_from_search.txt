@@ -8,34 +8,38 @@ Given a list of Zhihu search items, produce a JSON object matching this schema:
   "timeRange": { "minYear": <earliest year>, "maxYear": <latest year> },
   "nodes": [
     {
-      "id": "<contentId>",
-      "label": "<short author-visible label>",
+      "id": "<contentId from the item>",
+      "label": "<short author-visible label, 2-8 characters>",
       "camp": "academic" | "radical" | "experiential" | "stakeholder",
-      "summary": "<one-line summary>",
-      "quote": "<core quote from answer>",
-      "author": { "name": "<author>", "badgeText": "<optional>", "avatarUrl": "<optional>" },
-      "voteUpCount": <number>,
-      "publishedAt": "<ISO 8601 from EditTime>",
-      "predictionScore": { "predictionDeviation": <number 0-1> },
-      "contentType": "Answer"
+      "summary": "<one-line Chinese summary of the viewpoint>",
+      "quote": "<core quote extracted from the content>",
+      "opinionType": "赞成" | "中立" | "反对",
+      "opinionReason": "<reason for the opinionType, one sentence>",
+      "keyPoint": "<main argument, one sentence>",
+      "predictionScore": { "predictionDeviation": <number 0-1> }
     }
   ],
   "edges": [
     {
-      "id": "<unique edge id>",
+      "id": "<unique edge id, e.g. e1, e2>",
       "source": "<node id>",
       "target": "<node id>",
       "kind": "agree" | "clash" | "complement",
-      "label": "<short description of the relationship>"
+      "label": "<short Chinese description of the relationship>"
     }
   ]
 }
 
 Rules:
+- You ONLY generate the fields shown above. Do NOT generate author, voteUpCount, publishedAt, contentType or any other fields — those are filled by Python from the Zhihu API response.
 - At most 10 nodes.
 - Cover at least 3 different camps.
 - Include at least 3 "clash" edges for debate visibility.
 - Ensure every edge source/target references an existing node id.
 - predictionDeviation is a number between 0 and 1 representing how far from consensus the viewpoint is.
-- Use the ContentText field to determine summary, quote, camp classification, and edge relationships.
+- opinionType: classify the viewpoint as 赞成 (approve), 中立 (neutral), or 反对 (oppose) relative to the topic premise.
+- opinionReason: one sentence explaining why this opinionType was assigned.
+- keyPoint: the single most important argument made in this viewpoint.
+- Use the ContentText field to determine summary, quote, camp classification, opinionType, keyPoint, and edge relationships.
+- id must match the ContentID from the search item.
 - Output ONLY valid JSON, no markdown formatting, no code fences.

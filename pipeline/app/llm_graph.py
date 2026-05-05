@@ -1,11 +1,12 @@
 import json
 import os
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List
 
 from openai import AsyncOpenAI
 
-from .models import GraphDocument
+from .models import GraphDocument, ZhihuItemMeta
 
 PROMPT_PATH = Path(__file__).parent / "prompts" / "graph_from_search.txt"
 
@@ -53,12 +54,68 @@ def _get_model() -> str:
     return os.getenv("LLM_MODEL", cfg["default_model"])
 
 
+def _build_item_lookup(items: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any]]:
+    """Index search items by ContentID for fast lookup."""
+    lookup: Dict[str, Dict[str, Any]] = {}
+    for item in items:
+        cid = item.get("ContentID")
+        if cid:
+            lookup[cid] = item
+    return lookup
+
+
+def _format_published_at(edit_time: int | None) -> str:
+    """Convert Zhihu EditTime (unix timestamp) to ISO 8601 date string."""
+    if not edit_time:
+        return ""
+    return datetime.fromtimestamp(edit_time, tz=timezone.utc).strftime("%Y-%m-%d")
+
+
+def _build_zhihu_meta(item: Dict[str, Any]) -> ZhihuItemMeta:
+    """Extract all raw Zhihu item fields into ZhihuItemMeta."""
+    return ZhihuItemMeta(
+        zhihuTitle=item.get("Title"),
+        contentType=item.get("ContentType"),
+        contentId=item.get("ContentID"),
+        contentText=item.get("ContentText"),
+        url=item.get("Url"),
+        commentCount=item.get("CommentCount"),
+        editTime=item.get("EditTime"),
+        authorityLevel=item.get("AuthorityLevel"),
+        rankingScore=item.get("RankingScore"),
+    )
+
+
+def _enrich_graph(data: Dict[str, Any], items: List[Dict[str, Any]]) -> Dict[str, Any]:
+    """Merge Zhihu item fields into LLM-generated nodes."""
+    lookup = _build_item_lookup(items)
+    nodes = data.get("nodes", [])
+
+    for node in nodes:
+        node_id = node.get("id", "")
+        item = lookup.get(node_id)
+        if not item:
+            continue
+
+        # ── Python 从知乎 item 填充 ──
+        node["author"] = {
+            "name": item.get("AuthorName", ""),
+            "badgeText": item.get("AuthorBadgeText"),
+            "avatarUrl": item.get("AuthorAvatar"),
+        }
+        node["voteUpCount"] = item.get("VoteUpCount", 0)
+        node["publishedAt"] = _format_published_at(item.get("EditTime"))
+        node["zhihu"] = _build_zhihu_meta(item).model_dump()
+
+    return data
+
+
 async def build_graph_from_search_items(
     items: List[Dict[str, Any]],
     topic_title: str,
     slug: str,
 ) -> Dict[str, Any]:
-    """Call LLM to transform search items into a GraphDocument dict."""
+    """Call LLM to generate core graph, then merge Zhihu item fields."""
     client = _create_client()
     model = _get_model()
     provider = os.getenv("LLM_PROVIDER", "deepseek")
@@ -94,7 +151,10 @@ async def build_graph_from_search_items(
         if text.endswith("```"):
             text = text[: text.rfind("```")].strip()
 
-    return json.loads(text)
+    data = json.loads(text)
+
+    # Merge Zhihu item fields into LLM-generated nodes
+    return _enrich_graph(data, items)
 
 
 async def build_and_validate(
@@ -102,6 +162,6 @@ async def build_and_validate(
     topic_title: str,
     slug: str,
 ) -> GraphDocument:
-    """Build graph via LLM and validate with Pydantic."""
+    """Build graph via LLM, merge Zhihu data, validate with Pydantic."""
     data = await build_graph_from_search_items(items, topic_title, slug)
     return GraphDocument.model_validate(data)

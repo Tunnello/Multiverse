@@ -11,10 +11,21 @@ class Camp(str, Enum):
     stakeholder = "stakeholder"
 
 
+class OpinionType(str, Enum):
+    approve = "赞成"
+    neutral = "中立"
+    oppose = "反对"
+
+
 class EdgeKind(str, Enum):
     agree = "agree"
     clash = "clash"
     complement = "complement"
+
+
+# ────────────────────────────────────────────
+# Sub-models
+# ────────────────────────────────────────────
 
 
 class Author(BaseModel):
@@ -28,25 +39,56 @@ class PredictionScore(BaseModel):
     driftLabel: Optional[str] = None
 
 
+class ZhihuItemMeta(BaseModel):
+    """Raw Zhihu search API item fields — Python copies directly from search response."""
+
+    zhihuTitle: Optional[str] = None  # Title
+    contentType: Optional[str] = None  # ContentType
+    contentId: Optional[str] = None  # ContentID
+    contentText: Optional[str] = None  # ContentText
+    url: Optional[str] = None  # Url
+    commentCount: Optional[int] = None  # CommentCount
+    editTime: Optional[int] = None  # EditTime (unix timestamp)
+    authorityLevel: Optional[str] = None  # AuthorityLevel
+    rankingScore: Optional[float] = None  # RankingScore
+
+
+# ────────────────────────────────────────────
+# Graph elements
+# ────────────────────────────────────────────
+
+
 class GraphNode(BaseModel):
+    # ── LLM 生成 ──
     id: str
     label: str
     camp: Camp
     summary: str
     quote: str
+    opinionType: OpinionType
+    opinionReason: str
+    keyPoint: str
+    predictionScore: PredictionScore
+
+    # ── Python 从知乎搜索结果填充 ──
     author: Author
     voteUpCount: int
     publishedAt: str
-    predictionScore: PredictionScore
-    contentType: Optional[str] = None
+    zhihu: ZhihuItemMeta
 
 
 class GraphEdge(BaseModel):
+    # ── LLM 生成 ──
     id: str
     source: str
     target: str
     kind: EdgeKind
     label: str
+
+
+# ────────────────────────────────────────────
+# Document
+# ────────────────────────────────────────────
 
 
 class Topic(BaseModel):

@@ -9,10 +9,12 @@ export const CampEnum = z.enum([
 
 export const EdgeKindEnum = z.enum(["agree", "clash", "complement"]);
 
+// ── Sub-schemas ──
+
 export const AuthorSchema = z.object({
   name: z.string(),
   badgeText: z.string().optional(),
-  avatarUrl: z.string().url().optional().or(z.literal("")),
+  avatarUrl: z.string().optional(),
 });
 
 export const PredictionScoreSchema = z.object({
@@ -20,20 +22,43 @@ export const PredictionScoreSchema = z.object({
   driftLabel: z.string().optional(),
 });
 
+export const ZhihuItemMetaSchema = z.object({
+  zhihuTitle: z.string().optional(),
+  contentType: z.string().optional(),
+  contentId: z.string().optional(),
+  contentText: z.string().optional(),
+  url: z.string().optional(),
+  commentCount: z.number().int().optional(),
+  editTime: z.number().int().optional(),
+  authorityLevel: z.string().optional(),
+  rankingScore: z.number().optional(),
+});
+
+export const OpinionTypeEnum = z.enum(["赞成", "中立", "反对"]);
+
+// ── Graph elements ──
+
 export const GraphNodeSchema = z.object({
+  // LLM 生成
   id: z.string(),
   label: z.string(),
   camp: CampEnum,
   summary: z.string(),
   quote: z.string(),
+  opinionType: OpinionTypeEnum,
+  opinionReason: z.string(),
+  keyPoint: z.string(),
+  predictionScore: PredictionScoreSchema,
+
+  // Python 从知乎搜索结果填充
   author: AuthorSchema,
   voteUpCount: z.number(),
   publishedAt: z.string(),
-  predictionScore: PredictionScoreSchema,
-  contentType: z.string().optional(),
+  zhihu: ZhihuItemMetaSchema,
 });
 
 export const GraphEdgeSchema = z.object({
+  // LLM 生成
   id: z.string(),
   source: z.string(),
   target: z.string(),

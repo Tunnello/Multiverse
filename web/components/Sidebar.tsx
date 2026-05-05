@@ -3,13 +3,12 @@
 import { useState } from "react";
 import type { GraphDocument } from "@/lib/graphSchema";
 import type { Manifest } from "@/lib/manifestSchema";
-import { CAMP_COLOR } from "@/lib/campColors";
+import { OPINION_COLOR } from "@/lib/campColors";
 
-const CAMP_LEGEND: { camp: string; label: string; desc: string }[] = [
-  { camp: "academic", label: "学术派", desc: "以研究、数据、理论为依据的观点" },
-  { camp: "radical", label: "激进派", desc: "挑战主流叙事，提出颠覆性主张" },
-  { camp: "experiential", label: "经验派", desc: "基于亲身经历与实践的视角" },
-  { camp: "stakeholder", label: "利益相关方", desc: "代表特定群体利益或立场" },
+const OPINION_LEGEND: { key: string; label: string; desc: string }[] = [
+  { key: "赞成", label: "赞成", desc: "支持该议题的观点立场" },
+  { key: "中立", label: "中立", desc: "对该议题持中立态度" },
+  { key: "反对", label: "反对", desc: "反对该议题的观点立场" },
 ];
 
 type Props = {
@@ -101,18 +100,18 @@ export function Sidebar({ doc, manifest, selectedTopicId, onTopicSelect }: Props
             {/* Legend */}
             <section>
               <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">
-                图例
+                立场图例
               </h3>
               <div className="space-y-2">
-                {CAMP_LEGEND.map((c) => (
-                  <div key={c.camp} className="flex gap-2 items-start">
+                {OPINION_LEGEND.map((o) => (
+                  <div key={o.key} className="flex gap-2 items-start">
                     <span
                       className="mt-0.5 w-3 h-3 rounded-full shrink-0"
-                      style={{ backgroundColor: CAMP_COLOR[c.camp as keyof typeof CAMP_COLOR] }}
+                      style={{ backgroundColor: OPINION_COLOR[o.key] }}
                     />
                     <div>
-                      <span className="text-xs font-medium text-zinc-200">{c.label}</span>
-                      <p className="text-[11px] text-zinc-500 leading-tight">{c.desc}</p>
+                      <span className="text-xs font-medium text-zinc-200">{o.label}</span>
+                      <p className="text-[11px] text-zinc-500 leading-tight">{o.desc}</p>
                     </div>
                   </div>
                 ))}

@@ -25,15 +25,30 @@ function makeTopic(slug, title, nodeOffset) {
     const id = `${slug}-n${i + nodeOffset}`;
     nodes.push({
       id,
+      // LLM 生成
       label: `作者${i + 1}`,
       camp: camps[i % 4],
       summary: `${title}：摘要 ${i + 1}（合成数据）。`,
       quote: `金句 ${i + 1}：观点要鲜明。`,
+      opinionType: ["赞成", "中立", "反对"][i % 3],
+      opinionReason: `基于内容分析，该观点对议题持${["赞成", "中立", "反对"][i % 3]}态度，因其论述逻辑与数据支撑程度决定。`,
+      keyPoint: `核心论点 ${i + 1}：该回答最关键的主张与论证方向（合成数据）。`,
+      predictionScore: { predictionDeviation: (i % 5) * 0.1 },
+      // Python 从知乎搜索结果填充
       author: { name: `用户_${slug}_${i}`, badgeText: i % 2 === 0 ? "认证" : "" },
       voteUpCount: 100 - i * 7,
       publishedAt: `${year}-05-01T12:00:00.000Z`,
-      predictionScore: { predictionDeviation: (i % 5) * 0.1 },
-      contentType: "Answer",
+      zhihu: {
+        zhihuTitle: `${title} - 问题 ${i + 1}`,
+        contentType: "Answer",
+        contentId: id,
+        contentText: `这是${title}中第${i + 1}个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。`,
+        url: `https://www.zhihu.com/question/example/answer/${id}`,
+        commentCount: (8 - i) * 3,
+        editTime: new Date(`${year}-05-01T12:00:00.000Z`).getTime() / 1000,
+        authorityLevel: i % 3 === 0 ? "1" : "0",
+        rankingScore: 2.0 + Math.random() * 0.5,
+      },
     });
   }
   const edges = [

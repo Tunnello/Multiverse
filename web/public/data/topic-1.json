@@ -16,16 +16,29 @@
       "camp": "academic",
       "summary": "合成议题 Alpha：摘要 1（合成数据）。",
       "quote": "金句 1：观点要鲜明。",
+      "opinionType": "赞成",
+      "opinionReason": "基于内容分析，该观点对议题持赞成态度，因其论述逻辑与数据支撑程度决定。",
+      "keyPoint": "核心论点 1：该回答最关键的主张与论证方向（合成数据）。",
+      "predictionScore": {
+        "predictionDeviation": 0
+      },
       "author": {
         "name": "用户_topic-1_0",
         "badgeText": "认证"
       },
       "voteUpCount": 100,
       "publishedAt": "2016-05-01T12:00:00.000Z",
-      "predictionScore": {
-        "predictionDeviation": 0
-      },
-      "contentType": "Answer"
+      "zhihu": {
+        "zhihuTitle": "合成议题 Alpha - 问题 1",
+        "contentType": "Answer",
+        "contentId": "topic-1-n0",
+        "contentText": "这是合成议题 Alpha中第1个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。",
+        "url": "https://www.zhihu.com/question/example/answer/topic-1-n0",
+        "commentCount": 24,
+        "editTime": 1462104000,
+        "authorityLevel": "1",
+        "rankingScore": 2.2102681378578484
+      }
     },
     {
       "id": "topic-1-n1",
@@ -33,16 +46,29 @@
       "camp": "radical",
       "summary": "合成议题 Alpha：摘要 2（合成数据）。",
       "quote": "金句 2：观点要鲜明。",
+      "opinionType": "中立",
+      "opinionReason": "基于内容分析，该观点对议题持中立态度，因其论述逻辑与数据支撑程度决定。",
+      "keyPoint": "核心论点 2：该回答最关键的主张与论证方向（合成数据）。",
+      "predictionScore": {
+        "predictionDeviation": 0.1
+      },
       "author": {
         "name": "用户_topic-1_1",
         "badgeText": ""
       },
       "voteUpCount": 93,
       "publishedAt": "2018-05-01T12:00:00.000Z",
-      "predictionScore": {
-        "predictionDeviation": 0.1
-      },
-      "contentType": "Answer"
+      "zhihu": {
+        "zhihuTitle": "合成议题 Alpha - 问题 2",
+        "contentType": "Answer",
+        "contentId": "topic-1-n1",
+        "contentText": "这是合成议题 Alpha中第2个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。",
+        "url": "https://www.zhihu.com/question/example/answer/topic-1-n1",
+        "commentCount": 21,
+        "editTime": 1525176000,
+        "authorityLevel": "0",
+        "rankingScore": 2.050714221286075
+      }
     },
     {
       "id": "topic-1-n2",
@@ -50,16 +76,29 @@
       "camp": "experiential",
       "summary": "合成议题 Alpha：摘要 3（合成数据）。",
       "quote": "金句 3：观点要鲜明。",
+      "opinionType": "反对",
+      "opinionReason": "基于内容分析，该观点对议题持反对态度，因其论述逻辑与数据支撑程度决定。",
+      "keyPoint": "核心论点 3：该回答最关键的主张与论证方向（合成数据）。",
+      "predictionScore": {
+        "predictionDeviation": 0.2
+      },
       "author": {
         "name": "用户_topic-1_2",
         "badgeText": "认证"
       },
       "voteUpCount": 86,
       "publishedAt": "2020-05-01T12:00:00.000Z",
-      "predictionScore": {
-        "predictionDeviation": 0.2
-      },
-      "contentType": "Answer"
+      "zhihu": {
+        "zhihuTitle": "合成议题 Alpha - 问题 3",
+        "contentType": "Answer",
+        "contentId": "topic-1-n2",
+        "contentText": "这是合成议题 Alpha中第3个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。",
+        "url": "https://www.zhihu.com/question/example/answer/topic-1-n2",
+        "commentCount": 18,
+        "editTime": 1588334400,
+        "authorityLevel": "0",
+        "rankingScore": 2.2303429859901205
+      }
     },
     {
       "id": "topic-1-n3",
@@ -67,16 +106,29 @@
       "camp": "stakeholder",
       "summary": "合成议题 Alpha：摘要 4（合成数据）。",
       "quote": "金句 4：观点要鲜明。",
+      "opinionType": "赞成",
+      "opinionReason": "基于内容分析，该观点对议题持赞成态度，因其论述逻辑与数据支撑程度决定。",
+      "keyPoint": "核心论点 4：该回答最关键的主张与论证方向（合成数据）。",
+      "predictionScore": {
+        "predictionDeviation": 0.30000000000000004
+      },
       "author": {
         "name": "用户_topic-1_3",
         "badgeText": ""
       },
       "voteUpCount": 79,
       "publishedAt": "2022-05-01T12:00:00.000Z",
-      "predictionScore": {
-        "predictionDeviation": 0.30000000000000004
-      },
-      "contentType": "Answer"
+      "zhihu": {
+        "zhihuTitle": "合成议题 Alpha - 问题 4",
+        "contentType": "Answer",
+        "contentId": "topic-1-n3",
+        "contentText": "这是合成议题 Alpha中第4个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。",
+        "url": "https://www.zhihu.com/question/example/answer/topic-1-n3",
+        "commentCount": 15,
+        "editTime": 1651406400,
+        "authorityLevel": "1",
+        "rankingScore": 2.249839012498693
+      }
     },
     {
       "id": "topic-1-n4",
@@ -84,16 +136,29 @@
       "camp": "academic",
       "summary": "合成议题 Alpha：摘要 5（合成数据）。",
       "quote": "金句 5：观点要鲜明。",
+      "opinionType": "中立",
+      "opinionReason": "基于内容分析，该观点对议题持中立态度，因其论述逻辑与数据支撑程度决定。",
+      "keyPoint": "核心论点 5：该回答最关键的主张与论证方向（合成数据）。",
+      "predictionScore": {
+        "predictionDeviation": 0.4
+      },
       "author": {
         "name": "用户_topic-1_4",
         "badgeText": "认证"
       },
       "voteUpCount": 72,
       "publishedAt": "2024-05-01T12:00:00.000Z",
-      "predictionScore": {
-        "predictionDeviation": 0.4
-      },
-      "contentType": "Answer"
+      "zhihu": {
+        "zhihuTitle": "合成议题 Alpha - 问题 5",
+        "contentType": "Answer",
+        "contentId": "topic-1-n4",
+        "contentText": "这是合成议题 Alpha中第5个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。",
+        "url": "https://www.zhihu.com/question/example/answer/topic-1-n4",
+        "commentCount": 12,
+        "editTime": 1714564800,
+        "authorityLevel": "0",
+        "rankingScore": 2.1014183894517204
+      }
     },
     {
       "id": "topic-1-n5",
@@ -101,16 +166,29 @@
       "camp": "radical",
       "summary": "合成议题 Alpha：摘要 6（合成数据）。",
       "quote": "金句 6：观点要鲜明。",
+      "opinionType": "反对",
+      "opinionReason": "基于内容分析，该观点对议题持反对态度，因其论述逻辑与数据支撑程度决定。",
+      "keyPoint": "核心论点 6：该回答最关键的主张与论证方向（合成数据）。",
+      "predictionScore": {
+        "predictionDeviation": 0
+      },
       "author": {
         "name": "用户_topic-1_5",
         "badgeText": ""
       },
       "voteUpCount": 65,
       "publishedAt": "2016-05-01T12:00:00.000Z",
-      "predictionScore": {
-        "predictionDeviation": 0
-      },
-      "contentType": "Answer"
+      "zhihu": {
+        "zhihuTitle": "合成议题 Alpha - 问题 6",
+        "contentType": "Answer",
+        "contentId": "topic-1-n5",
+        "contentText": "这是合成议题 Alpha中第6个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。",
+        "url": "https://www.zhihu.com/question/example/answer/topic-1-n5",
+        "commentCount": 9,
+        "editTime": 1462104000,
+        "authorityLevel": "0",
+        "rankingScore": 2.0245127828194884
+      }
     },
     {
       "id": "topic-1-n6",
@@ -118,16 +196,29 @@
       "camp": "experiential",
       "summary": "合成议题 Alpha：摘要 7（合成数据）。",
       "quote": "金句 7：观点要鲜明。",
+      "opinionType": "赞成",
+      "opinionReason": "基于内容分析，该观点对议题持赞成态度，因其论述逻辑与数据支撑程度决定。",
+      "keyPoint": "核心论点 7：该回答最关键的主张与论证方向（合成数据）。",
+      "predictionScore": {
+        "predictionDeviation": 0.1
+      },
       "author": {
         "name": "用户_topic-1_6",
         "badgeText": "认证"
       },
       "voteUpCount": 58,
       "publishedAt": "2018-05-01T12:00:00.000Z",
-      "predictionScore": {
-        "predictionDeviation": 0.1
-      },
-      "contentType": "Answer"
+      "zhihu": {
+        "zhihuTitle": "合成议题 Alpha - 问题 7",
+        "contentType": "Answer",
+        "contentId": "topic-1-n6",
+        "contentText": "这是合成议题 Alpha中第7个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。",
+        "url": "https://www.zhihu.com/question/example/answer/topic-1-n6",
+        "commentCount": 6,
+        "editTime": 1525176000,
+        "authorityLevel": "1",
+        "rankingScore": 2.2391141217784485
+      }
     },
     {
       "id": "topic-1-n7",
@@ -135,16 +226,29 @@
       "camp": "stakeholder",
       "summary": "合成议题 Alpha：摘要 8（合成数据）。",
       "quote": "金句 8：观点要鲜明。",
+      "opinionType": "中立",
+      "opinionReason": "基于内容分析，该观点对议题持中立态度，因其论述逻辑与数据支撑程度决定。",
+      "keyPoint": "核心论点 8：该回答最关键的主张与论证方向（合成数据）。",
+      "predictionScore": {
+        "predictionDeviation": 0.2
+      },
       "author": {
         "name": "用户_topic-1_7",
         "badgeText": ""
       },
       "voteUpCount": 51,
       "publishedAt": "2020-05-01T12:00:00.000Z",
-      "predictionScore": {
-        "predictionDeviation": 0.2
-      },
-      "contentType": "Answer"
+      "zhihu": {
+        "zhihuTitle": "合成议题 Alpha - 问题 8",
+        "contentType": "Answer",
+        "contentId": "topic-1-n7",
+        "contentText": "这是合成议题 Alpha中第8个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。",
+        "url": "https://www.zhihu.com/question/example/answer/topic-1-n7",
+        "commentCount": 3,
+        "editTime": 1588334400,
+        "authorityLevel": "0",
+        "rankingScore": 2.1424057628105726
+      }
     }
   ],
   "edges": [
