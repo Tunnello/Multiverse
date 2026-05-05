@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { GraphDocument } from "@/lib/graphSchema";
+import type { Manifest } from "@/lib/manifestSchema";
 import { CAMP_COLOR } from "@/lib/campColors";
 
 const CAMP_LEGEND: { camp: string; label: string; desc: string }[] = [
@@ -13,9 +14,12 @@ const CAMP_LEGEND: { camp: string; label: string; desc: string }[] = [
 
 type Props = {
   doc: GraphDocument;
+  manifest: Manifest;
+  selectedTopicId: string;
+  onTopicSelect: (id: string, dataUrl: string) => void;
 };
 
-export function Sidebar({ doc }: Props) {
+export function Sidebar({ doc, manifest, selectedTopicId, onTopicSelect }: Props) {
   const [open, setOpen] = useState(true);
 
   return (
@@ -42,6 +46,28 @@ export function Sidebar({ doc }: Props) {
           </button>
 
           <div className="p-4 space-y-5">
+            {/* History */}
+            <section>
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">
+                历史记录
+              </h3>
+              <div className="space-y-0.5">
+                {manifest.topics.map((t) => (
+                  <button
+                    key={t.id}
+                    onClick={() => onTopicSelect(t.id, t.dataUrl)}
+                    className={`w-full text-left px-2.5 py-1.5 rounded text-xs transition-colors ${
+                      t.id === selectedTopicId
+                        ? "bg-blue-600/30 text-blue-300"
+                        : "text-zinc-400 hover:bg-zinc-800 hover:text-zinc-200"
+                    }`}
+                  >
+                    {t.label}
+                  </button>
+                ))}
+              </div>
+            </section>
+
             {/* Topic info */}
             <section>
               <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">

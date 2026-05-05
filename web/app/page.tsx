@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { GraphCanvas } from "@/components/GraphCanvas";
-import { TopicTabs } from "@/components/TopicTabs";
+import { TopicSearch } from "@/components/TopicSearch";
 import { YearSlider } from "@/components/YearSlider";
 import { NodeDrawer } from "@/components/NodeDrawer";
 import { Sidebar } from "@/components/Sidebar";
@@ -62,13 +62,13 @@ export default function Home() {
   return (
     <div className="flex flex-col h-screen bg-zinc-900 text-white">
       <header className="flex items-center justify-between px-4 py-3 border-b border-zinc-700 bg-zinc-950">
-        <h1 className="text-lg font-bold">{doc.topic.title}</h1>
-        <TopicTabs
+        <h1 className="text-lg font-bold shrink-0 mr-6">观点对撞机</h1>
+        <TopicSearch
           manifest={manifest}
           selectedId={selectedTopicId}
           onSelect={handleTopicSelect}
         />
-        <div className="w-[100px]" />
+        <div className="w-[100px] shrink-0" />
       </header>
 
       <div className="flex-1 flex overflow-hidden relative">
@@ -79,7 +79,12 @@ export default function Home() {
             onSelect={setSelectedNodeId}
           />
         </div>
-        <Sidebar doc={doc} />
+        <Sidebar
+          doc={doc}
+          manifest={manifest}
+          selectedTopicId={selectedTopicId}
+          onTopicSelect={handleTopicSelect}
+        />
       </div>
 
       <footer className="border-t border-zinc-700 bg-zinc-950 px-4 py-3">

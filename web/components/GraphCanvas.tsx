@@ -41,11 +41,27 @@ function buildNodeTooltip(n: GraphNode) {
     </div>`;
 }
 
+function formatNodes(nodes: GraphNode[]) {
+  return nodes.map((n) => ({
+    id: n.id,
+    data: { ...n, color: CAMP_COLOR[n.camp] },
+  }));
+}
+
+function formatEdges(edges: GraphEdge[]) {
+  return edges.map((e) => ({
+    id: e.id,
+    source: e.source,
+    target: e.target,
+    data: { ...e, lineDash: e.kind === "clash" ? [6, 4] : undefined },
+  }));
+}
+
 export function GraphCanvas({ nodes, edges, onSelect }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const graphRef = useRef<Graph | null>(null);
-  const mountedRef = useRef(true);
   const onSelectRef = useRef(onSelect);
+  const layoutRef = useRef<Promise<void> | null>(null);
 
   onSelectRef.current = onSelect;
 
@@ -53,25 +69,20 @@ export function GraphCanvas({ nodes, edges, onSelect }: Props) {
   useEffect(() => {
     if (!containerRef.current) return;
 
-    const g6Nodes = nodes.map((n) => ({
-      id: n.id,
-      data: { ...n, color: CAMP_COLOR[n.camp] },
-    }));
-    const g6Edges = edges.map((e) => ({
-      id: e.id,
-      source: e.source,
-      target: e.target,
-      data: { ...e, lineDash: e.kind === "clash" ? [6, 4] : undefined },
-    }));
-
     const graph = new Graph({
       container: containerRef.current,
       width: containerRef.current.clientWidth,
       height: containerRef.current.clientHeight,
-      data: { nodes: g6Nodes, edges: g6Edges },
+      data: { nodes: formatNodes(nodes), edges: formatEdges(edges) },
       node: {
         style: {
           fill: (d: { data?: { color?: string } }) => d.data?.color ?? "#888",
+          labelText: (d: { data?: { author?: { name?: string } } }) =>
+            d.data?.author?.name ?? "",
+          labelFill: "#e2e8f0",
+          labelFontSize: 11,
+          labelPlacement: "bottom",
+          labelOffsetY: 6,
         },
       },
       edge: {
@@ -83,18 +94,18 @@ export function GraphCanvas({ nodes, edges, onSelect }: Props) {
       },
       layout: {
         type: "d3-force",
-        linkDistance: 200,
-        nodeStrength: -600,
-        preventOverlap: true,
+        animation: true,
+        manyBody: {
+          strength: -30,
+        },
+        collide: {
+          strength: 0.5,
+        },
         clustering: true,
         clusterBy: (d: { data?: { camp?: string } }) => d.data?.camp ?? "unknown",
-        clusterNodeStrength: -8,
-        clusterFociStrength: 0.8,
-        clusterEdgeDistance: 300,
-        clusterEdgeStrength: 0.02,
-        centerStrength: 0.05,
-        iterations: 300,
-        alphaDecay: 0.01,
+        clusterFociStrength: 0.3,
+        clusterNodeStrength: -3,
+        alphaDecay: 0.02,
       },
       behaviors: [
         { type: "drag-canvas" },
@@ -123,40 +134,27 @@ export function GraphCanvas({ nodes, edges, onSelect }: Props) {
     graphRef.current = graph;
 
     return () => {
-      mountedRef.current = false;
       try {
         graph.destroy();
       } catch {
-        // Ignore destroy errors from async layout
+        // Ignore destroy errors
       }
       graphRef.current = null;
     };
-    // Only create/destroy on mount/unmount, not on data changes
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Update graph data when nodes/edges change
+  // Update data and re-run layout dynamically (skip initial mount)
   useEffect(() => {
     const graph = graphRef.current;
-    if (!graph) return;
+    if (!graph?.rendered) return;
 
-    const g6Nodes = nodes.map((n) => ({
-      id: n.id,
-      data: { ...n, color: CAMP_COLOR[n.camp] },
-    }));
-    const g6Edges = edges.map((e) => ({
-      id: e.id,
-      source: e.source,
-      target: e.target,
-      data: { ...e, lineDash: e.kind === "clash" ? [6, 4] : undefined },
-    }));
+    graph.setData({
+      nodes: formatNodes(nodes),
+      edges: formatEdges(edges),
+    });
 
-    try {
-      graph.setData({ nodes: g6Nodes, edges: g6Edges });
-      graph.render();
-    } catch {
-      // Graph may have been destroyed
-    }
+    layoutRef.current = graph.layout();
   }, [nodes, edges]);
 
   return <div ref={containerRef} className="h-full w-full min-h-[480px]" />;
