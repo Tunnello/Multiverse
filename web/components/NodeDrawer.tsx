@@ -8,6 +8,11 @@ type Props = {
   onClose: () => void;
 };
 
+function asArray(v: string | string[] | undefined): string[] {
+  if (!v) return [];
+  return Array.isArray(v) ? v : [v];
+}
+
 function formatEditTime(ts: number | undefined): string {
   if (!ts) return "-";
   return new Date(ts * 1000).toLocaleDateString("zh-CN");
@@ -45,8 +50,20 @@ export function NodeDrawer({ node, onClose }: Props) {
         </div>
 
         {/* LLM 生成 */}
-        <Section label="核心观点">{node.keyPoint}</Section>
-        <Section label="立场原因">{node.opinionReason}</Section>
+        <Section label="核心观点">
+          <ul className="list-disc list-inside space-y-0.5">
+            {asArray(node.keyPoint).map((p, i) => (
+              <li key={i}>{p}</li>
+            ))}
+          </ul>
+        </Section>
+        <Section label="立场原因">
+          <ul className="list-disc list-inside space-y-0.5">
+            {asArray(node.opinionReason).map((r, i) => (
+              <li key={i}>{r}</li>
+            ))}
+          </ul>
+        </Section>
         <Section label="摘要">{node.summary}</Section>
         <Section label="引言" italic>&ldquo;{node.quote}&rdquo;</Section>
 
@@ -73,6 +90,13 @@ export function NodeDrawer({ node, onClose }: Props) {
               <Section label="类型">{z.contentType ?? "-"}</Section>
               <Section label="Content ID">{z.contentId ?? "-"}</Section>
             </div>
+            <div className="flex gap-4">
+              <Section label="知乎作者">{z.authorName ?? "-"}</Section>
+              <Section label="赞同数">{z.voteUpCount ?? 0}</Section>
+            </div>
+            {z.authorBadgeText && (
+              <Section label="认证标识">{z.authorBadgeText}</Section>
+            )}
             {z.contentText && (
               <Section label="内容全文">
                 <p className="max-h-32 overflow-y-auto leading-relaxed whitespace-pre-line">
@@ -119,7 +143,7 @@ function Section({
   return (
     <div>
       <p className="text-zinc-400 text-xs uppercase tracking-wide mb-0.5">{label}</p>
-      <p className={italic ? "text-zinc-300 italic" : "text-zinc-200"}>{children}</p>
+      <div className={italic ? "text-zinc-300 italic" : "text-zinc-200"}>{children}</div>
     </div>
   );
 }

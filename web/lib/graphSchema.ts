@@ -29,6 +29,11 @@ export const ZhihuItemMetaSchema = z.object({
   contentText: z.string().optional(),
   url: z.string().optional(),
   commentCount: z.number().int().optional(),
+  voteUpCount: z.number().int().optional(),
+  authorName: z.string().optional(),
+  authorAvatar: z.string().optional(),
+  authorBadge: z.string().optional(),
+  authorBadgeText: z.string().optional(),
   editTime: z.number().int().optional(),
   authorityLevel: z.string().optional(),
   rankingScore: z.number().optional(),
@@ -46,8 +51,12 @@ export const GraphNodeSchema = z.object({
   summary: z.string(),
   quote: z.string(),
   opinionType: OpinionTypeEnum,
-  opinionReason: z.string(),
-  keyPoint: z.string(),
+  opinionReason: z
+    .union([z.string(), z.array(z.string())])
+    .transform((v) => (typeof v === "string" ? [v] : v)),
+  keyPoint: z
+    .union([z.string(), z.array(z.string())])
+    .transform((v) => (typeof v === "string" ? [v] : v)),
   predictionScore: PredictionScoreSchema,
 
   // Python 从知乎搜索结果填充

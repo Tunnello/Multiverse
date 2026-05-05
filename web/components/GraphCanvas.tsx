@@ -16,6 +16,11 @@ function formatEditTime(ts: number | undefined): string {
   return new Date(ts * 1000).toLocaleDateString("zh-CN");
 }
 
+function asArray(v: string | string[] | undefined): string[] {
+  if (!v) return [];
+  return Array.isArray(v) ? v : [v];
+}
+
 function truncate(text: string | undefined, max: number): string {
   if (!text) return "";
   return text.length > max ? text.slice(0, max) + "…" : text;
@@ -23,6 +28,10 @@ function truncate(text: string | undefined, max: number): string {
 
 function buildNodeTooltip(n: GraphNode) {
   const z = n.zhihu;
+  const kp = asArray(n.keyPoint);
+  const kpHtml = kp.length
+    ? `<div style="color:#9ca3af; margin-top:4px;">${kp.map((p) => `&bull; ${p}`).join("<br>")}</div>`
+    : "";
   return `
     <div style="
       background:#1f2937; color:#f1f5f9; border:1px solid #374151;
@@ -34,7 +43,7 @@ function buildNodeTooltip(n: GraphNode) {
         <span style="display:inline-block;padding:1px 5px;border-radius:3px;font-size:10px;font-weight:600;background:${OPINION_COLOR[n.opinionType]};color:#fff;">${n.opinionType}</span>
         <span style="display:inline-block;padding:1px 5px;border-radius:3px;font-size:10px;font-weight:500;background:#374151;color:#9ca3af;">${n.camp}</span>
       </div>
-      <div style="color:#9ca3af; margin-top:4px;">${n.keyPoint}</div>
+      ${kpHtml}
       <div style="margin-top:2px; font-style:italic; color:#d1d5db;">&ldquo;${n.quote}&rdquo;</div>
       <div style="margin-top:6px; display:flex; gap:10px; font-size:11px; color:#9ca3af;">
         ${n.author ? `<span>${n.author.name}</span>` : ""}
@@ -45,6 +54,8 @@ function buildNodeTooltip(n: GraphNode) {
       <div style="margin-top:6px; padding-top:6px; border-top:1px solid #374151; font-size:11px; color:#6b7280; line-height:1.7;">
         <div><span style="color:#9ca3af;">标题:</span> ${z.zhihuTitle ?? "-"}</div>
         <div><span style="color:#9ca3af;">类型:</span> ${z.contentType ?? "-"}  <span style="color:#9ca3af;">ID:</span> ${z.contentId ?? "-"}</div>
+        <div><span style="color:#9ca3af;">作者:</span> ${z.authorName ?? "-"}  <span style="color:#9ca3af;">赞同:</span> ${z.voteUpCount ?? 0}</div>
+        ${z.authorBadgeText ? `<div><span style="color:#9ca3af;">认证:</span> ${z.authorBadgeText}</div>` : ""}
         <div><span style="color:#9ca3af;">内容:</span> ${truncate(z.contentText, 120)}</div>
         <div><span style="color:#9ca3af;">链接:</span> <a href="${z.url ?? "#"}" target="_blank" style="color:#60a5fa;">打开原文</a></div>
         <div style="display:flex; gap:8px; margin-top:2px;">

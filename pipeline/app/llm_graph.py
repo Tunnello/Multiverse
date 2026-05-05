@@ -1,4 +1,5 @@
 import json
+import logging
 import os
 from datetime import datetime, timezone
 from pathlib import Path
@@ -7,6 +8,8 @@ from typing import Any, Dict, List
 from openai import AsyncOpenAI
 
 from .models import GraphDocument, ZhihuItemMeta
+
+logger = logging.getLogger(__name__)
 
 PROMPT_PATH = Path(__file__).parent / "prompts" / "graph_from_search.txt"
 
@@ -45,6 +48,7 @@ def _create_client() -> AsyncOpenAI:
     if cfg["base_url"]:
         kwargs["base_url"] = cfg["base_url"]
 
+    logger.info("LLM client: provider=%s base_url=%s", provider, cfg.get("base_url", "(default)"))
     return AsyncOpenAI(**kwargs)
 
 
@@ -72,7 +76,7 @@ def _format_published_at(edit_time: int | None) -> str:
 
 
 def _build_zhihu_meta(item: Dict[str, Any]) -> ZhihuItemMeta:
-    """Extract all raw Zhihu item fields into ZhihuItemMeta."""
+    """Copy ALL Zhihu API response Item fields into ZhihuItemMeta."""
     return ZhihuItemMeta(
         zhihuTitle=item.get("Title"),
         contentType=item.get("ContentType"),
@@ -80,6 +84,11 @@ def _build_zhihu_meta(item: Dict[str, Any]) -> ZhihuItemMeta:
         contentText=item.get("ContentText"),
         url=item.get("Url"),
         commentCount=item.get("CommentCount"),
+        voteUpCount=item.get("VoteUpCount"),
+        authorName=item.get("AuthorName"),
+        authorAvatar=item.get("AuthorAvatar"),
+        authorBadge=item.get("AuthorBadge"),
+        authorBadgeText=item.get("AuthorBadgeText"),
         editTime=item.get("EditTime"),
         authorityLevel=item.get("AuthorityLevel"),
         rankingScore=item.get("RankingScore"),
@@ -130,6 +139,8 @@ async def build_graph_from_search_items(
     if provider == "deepseek":
         extra_kwargs["extra_body"] = {"thinking": {"type": "enabled"}}
 
+    logger.info("LLM call: model=%s items=%d prompt_len=%d input_len=%d",
+                model, len(items), len(prompt), len(user_content))
     response = await client.chat.completions.create(
         model=model,
         messages=[
@@ -142,7 +153,11 @@ async def build_graph_from_search_items(
 
     text = response.choices[0].message.content
     if not text:
+        logger.error("LLM returned empty response")
         raise RuntimeError("LLM returned empty response")
+
+    logger.info("LLM response: %d chars, usage=%s",
+                len(text), response.usage)
 
     # Strip code fences if present
     text = text.strip()
@@ -154,7 +169,9 @@ async def build_graph_from_search_items(
     data = json.loads(text)
 
     # Merge Zhihu item fields into LLM-generated nodes
-    return _enrich_graph(data, items)
+    result = _enrich_graph(data, items)
+    logger.info("Graph enriched: %d nodes", len(result.get("nodes", [])))
+    return result
 
 
 async def build_and_validate(

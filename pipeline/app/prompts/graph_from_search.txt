@@ -14,8 +14,8 @@ Given a list of Zhihu search items, produce a JSON object matching this schema:
       "summary": "<one-line Chinese summary of the viewpoint>",
       "quote": "<core quote extracted from the content>",
       "opinionType": "赞成" | "中立" | "反对",
-      "opinionReason": "<reason for the opinionType, one sentence>",
-      "keyPoint": "<main argument, one sentence>",
+      "opinionReason": ["<reason 1>", "<reason 2>", "<reason 3>"],
+      "keyPoint": ["<key point 1>", "<key point 2>", "<key point 3>", "<key point 4>", "<key point 5>"],
       "predictionScore": { "predictionDeviation": <number 0-1> }
     }
   ],
@@ -38,8 +38,8 @@ Rules:
 - Ensure every edge source/target references an existing node id.
 - predictionDeviation is a number between 0 and 1 representing how far from consensus the viewpoint is.
 - opinionType: classify the viewpoint as 赞成 (approve), 中立 (neutral), or 反对 (oppose) relative to the topic premise.
-- opinionReason: one sentence explaining why this opinionType was assigned.
-- keyPoint: the single most important argument made in this viewpoint.
+- opinionReason: a list of 1-3 strings explaining WHY this opinionType was assigned. Each reason should be one concise sentence.
+- keyPoint: a list of 3-5 strings, each being a distinct main argument or claim made in this viewpoint. Each point should be one concise sentence.
 - Use the ContentText field to determine summary, quote, camp classification, opinionType, keyPoint, and edge relationships.
 - id must match the ContentID from the search item.
 - Output ONLY valid JSON, no markdown formatting, no code fences.

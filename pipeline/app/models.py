@@ -48,6 +48,11 @@ class ZhihuItemMeta(BaseModel):
     contentText: Optional[str] = None  # ContentText
     url: Optional[str] = None  # Url
     commentCount: Optional[int] = None  # CommentCount
+    voteUpCount: Optional[int] = None  # VoteUpCount
+    authorName: Optional[str] = None  # AuthorName
+    authorAvatar: Optional[str] = None  # AuthorAvatar
+    authorBadge: Optional[str] = None  # AuthorBadge
+    authorBadgeText: Optional[str] = None  # AuthorBadgeText
     editTime: Optional[int] = None  # EditTime (unix timestamp)
     authorityLevel: Optional[str] = None  # AuthorityLevel
     rankingScore: Optional[float] = None  # RankingScore
@@ -66,8 +71,8 @@ class GraphNode(BaseModel):
     summary: str
     quote: str
     opinionType: OpinionType
-    opinionReason: str
-    keyPoint: str
+    opinionReason: List[str]
+    keyPoint: List[str]
     predictionScore: PredictionScore
 
     # ── Python 从知乎搜索结果填充 ──
