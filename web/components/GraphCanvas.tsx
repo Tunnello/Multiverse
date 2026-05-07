@@ -72,6 +72,29 @@ function buildNodeTooltip(n: GraphNode) {
     </div>`;
 }
 
+function buildTimebarData(nodes: GraphNode[]) {
+  const dayMap = new Map<string, { time: number; value: number }>();
+  nodes.forEach((n) => {
+    if (!n.timestamp) return;
+    const d = new Date(n.timestamp);
+    d.setUTCHours(0, 0, 0, 0);
+    const key = d.toISOString().split("T")[0];
+    const entry = dayMap.get(key);
+    if (entry) {
+      entry.value++;
+    } else {
+      dayMap.set(key, { time: d.getTime(), value: 1 });
+    }
+  });
+  return Array.from(dayMap.entries())
+    .sort((a, b) => a[0].localeCompare(b[0]))
+    .map(([label, { time, value }]) => ({
+      time: new Date(time),
+      value,
+      label,
+    }));
+}
+
 function formatNodes(nodes: GraphNode[]) {
   return nodes.map((n) => ({
     id: n.id,
@@ -168,6 +191,8 @@ export function GraphCanvas({ nodes, edges, onSelect }: Props) {
           },
         },
       ],
+      autoFit: "view",
+      padding: [10, 0, 160, 0],
       plugins: [
         {
           type: "tooltip",
@@ -177,6 +202,15 @@ export function GraphCanvas({ nodes, edges, onSelect }: Props) {
             if (!item?.data?.id) return "";
             return buildNodeTooltip(item.data);
           },
+        },
+        {
+          type: "timebar",
+          key: "timebar",
+          data: buildTimebarData(nodes),
+          width: 400,
+          height: 100,
+          loop: false,
+          timebarType: "chart",
         },
       ],
     });
@@ -210,6 +244,13 @@ export function GraphCanvas({ nodes, edges, onSelect }: Props) {
       nodes: formatNodes(nodes),
       edges: formatEdges(edges),
     });
+
+    // Update timebar histogram when data changes
+    try {
+      graph.updatePlugin({ key: "timebar", data: buildTimebarData(nodes) });
+    } catch {
+      // Silently ignore if plugin update fails
+    }
 
     layoutRef.current = graph.layout();
   }, [nodes, edges]);

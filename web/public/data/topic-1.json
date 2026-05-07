@@ -6,7 +6,7 @@
     "sourceNote": "synthetic_fixture"
   },
   "timeRange": {
-    "minYear": 2016,
+    "minYear": 2026,
     "maxYear": 2026
   },
   "nodes": [
@@ -34,22 +34,23 @@
         "badgeText": "认证"
       },
       "voteUpCount": 100,
-      "publishedAt": "2016-05-01T12:00:00.000Z",
+      "publishedAt": "2026-05-01T12:00:00.000Z",
+      "timestamp": 1777636800000,
       "zhihu": {
         "zhihuTitle": "合成议题 Alpha - 问题 1",
         "contentType": "Answer",
         "contentId": "topic-1-n0",
         "contentText": "这是合成议题 Alpha中第1个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。",
         "url": "https://www.zhihu.com/question/example/answer/topic-1-n0",
-        "commentCount": 24,
+        "commentCount": 30,
         "voteUpCount": 100,
         "authorName": "用户_topic-1_0",
         "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n0_l.jpg",
         "authorBadge": "https://pic1.zhimg.com/v2-badge_l.png",
         "authorBadgeText": "认证",
-        "editTime": 1462104000,
+        "editTime": 1777636800,
         "authorityLevel": "1",
-        "rankingScore": 2.0502253061802005
+        "rankingScore": 2.1282586525945115
       }
     },
     {
@@ -76,22 +77,23 @@
         "badgeText": ""
       },
       "voteUpCount": 93,
-      "publishedAt": "2018-05-01T12:00:00.000Z",
+      "publishedAt": "2026-05-02T12:00:00.000Z",
+      "timestamp": 1777723200000,
       "zhihu": {
         "zhihuTitle": "合成议题 Alpha - 问题 2",
         "contentType": "Answer",
         "contentId": "topic-1-n1",
         "contentText": "这是合成议题 Alpha中第2个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。",
         "url": "https://www.zhihu.com/question/example/answer/topic-1-n1",
-        "commentCount": 21,
+        "commentCount": 27,
         "voteUpCount": 93,
         "authorName": "用户_topic-1_1",
         "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n1_l.jpg",
         "authorBadge": "",
         "authorBadgeText": "",
-        "editTime": 1525176000,
+        "editTime": 1777723200,
         "authorityLevel": "0",
-        "rankingScore": 2.2675857844041194
+        "rankingScore": 2.1301983153936996
       }
     },
     {
@@ -118,22 +120,23 @@
         "badgeText": "认证"
       },
       "voteUpCount": 86,
-      "publishedAt": "2020-05-01T12:00:00.000Z",
+      "publishedAt": "2026-05-03T12:00:00.000Z",
+      "timestamp": 1777809600000,
       "zhihu": {
         "zhihuTitle": "合成议题 Alpha - 问题 3",
         "contentType": "Answer",
         "contentId": "topic-1-n2",
         "contentText": "这是合成议题 Alpha中第3个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。",
         "url": "https://www.zhihu.com/question/example/answer/topic-1-n2",
-        "commentCount": 18,
+        "commentCount": 24,
         "voteUpCount": 86,
         "authorName": "用户_topic-1_2",
         "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n2_l.jpg",
         "authorBadge": "https://pic1.zhimg.com/v2-badge_l.png",
         "authorBadgeText": "认证",
-        "editTime": 1588334400,
+        "editTime": 1777809600,
         "authorityLevel": "0",
-        "rankingScore": 2.2963459508143873
+        "rankingScore": 2.0057320599272157
       }
     },
     {
@@ -160,22 +163,23 @@
         "badgeText": ""
       },
       "voteUpCount": 79,
-      "publishedAt": "2022-05-01T12:00:00.000Z",
+      "publishedAt": "2026-05-04T12:00:00.000Z",
+      "timestamp": 1777896000000,
       "zhihu": {
         "zhihuTitle": "合成议题 Alpha - 问题 4",
         "contentType": "Answer",
         "contentId": "topic-1-n3",
         "contentText": "这是合成议题 Alpha中第4个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。",
         "url": "https://www.zhihu.com/question/example/answer/topic-1-n3",
-        "commentCount": 15,
+        "commentCount": 21,
         "voteUpCount": 79,
         "authorName": "用户_topic-1_3",
         "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n3_l.jpg",
         "authorBadge": "",
         "authorBadgeText": "",
-        "editTime": 1651406400,
+        "editTime": 1777896000,
         "authorityLevel": "1",
-        "rankingScore": 2.1203921519042277
+        "rankingScore": 2.0240880428058796
       }
     },
     {
@@ -202,22 +206,23 @@
         "badgeText": "认证"
       },
       "voteUpCount": 72,
-      "publishedAt": "2024-05-01T12:00:00.000Z",
+      "publishedAt": "2026-05-05T12:00:00.000Z",
+      "timestamp": 1777982400000,
       "zhihu": {
         "zhihuTitle": "合成议题 Alpha - 问题 5",
         "contentType": "Answer",
         "contentId": "topic-1-n4",
         "contentText": "这是合成议题 Alpha中第5个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。",
         "url": "https://www.zhihu.com/question/example/answer/topic-1-n4",
-        "commentCount": 12,
+        "commentCount": 18,
         "voteUpCount": 72,
         "authorName": "用户_topic-1_4",
         "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n4_l.jpg",
         "authorBadge": "https://pic1.zhimg.com/v2-badge_l.png",
         "authorBadgeText": "认证",
-        "editTime": 1714564800,
+        "editTime": 1777982400,
         "authorityLevel": "0",
-        "rankingScore": 2.3753206977171417
+        "rankingScore": 2.2862716084711217
       }
     },
     {
@@ -244,22 +249,23 @@
         "badgeText": ""
       },
       "voteUpCount": 65,
-      "publishedAt": "2016-05-01T12:00:00.000Z",
+      "publishedAt": "2026-05-06T12:00:00.000Z",
+      "timestamp": 1778068800000,
       "zhihu": {
         "zhihuTitle": "合成议题 Alpha - 问题 6",
         "contentType": "Answer",
         "contentId": "topic-1-n5",
         "contentText": "这是合成议题 Alpha中第6个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。",
         "url": "https://www.zhihu.com/question/example/answer/topic-1-n5",
-        "commentCount": 9,
+        "commentCount": 15,
         "voteUpCount": 65,
         "authorName": "用户_topic-1_5",
         "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n5_l.jpg",
         "authorBadge": "",
         "authorBadgeText": "",
-        "editTime": 1462104000,
+        "editTime": 1778068800,
         "authorityLevel": "0",
-        "rankingScore": 2.1112954480247903
+        "rankingScore": 2.233187014618534
       }
     },
     {
@@ -286,22 +292,23 @@
         "badgeText": "认证"
       },
       "voteUpCount": 58,
-      "publishedAt": "2018-05-01T12:00:00.000Z",
+      "publishedAt": "2026-05-07T12:00:00.000Z",
+      "timestamp": 1778155200000,
       "zhihu": {
         "zhihuTitle": "合成议题 Alpha - 问题 7",
         "contentType": "Answer",
         "contentId": "topic-1-n6",
         "contentText": "这是合成议题 Alpha中第7个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。",
         "url": "https://www.zhihu.com/question/example/answer/topic-1-n6",
-        "commentCount": 6,
+        "commentCount": 12,
         "voteUpCount": 58,
         "authorName": "用户_topic-1_6",
         "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n6_l.jpg",
         "authorBadge": "https://pic1.zhimg.com/v2-badge_l.png",
         "authorBadgeText": "认证",
-        "editTime": 1525176000,
+        "editTime": 1778155200,
         "authorityLevel": "1",
-        "rankingScore": 2.0900330447557725
+        "rankingScore": 2.0696797832743936
       }
     },
     {
@@ -328,22 +335,109 @@
         "badgeText": ""
       },
       "voteUpCount": 51,
-      "publishedAt": "2020-05-01T12:00:00.000Z",
+      "publishedAt": "2026-05-01T12:00:00.000Z",
+      "timestamp": 1777636800000,
       "zhihu": {
         "zhihuTitle": "合成议题 Alpha - 问题 8",
         "contentType": "Answer",
         "contentId": "topic-1-n7",
         "contentText": "这是合成议题 Alpha中第8个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。",
         "url": "https://www.zhihu.com/question/example/answer/topic-1-n7",
-        "commentCount": 3,
+        "commentCount": 9,
         "voteUpCount": 51,
         "authorName": "用户_topic-1_7",
         "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n7_l.jpg",
         "authorBadge": "",
         "authorBadgeText": "",
-        "editTime": 1588334400,
+        "editTime": 1777636800,
         "authorityLevel": "0",
-        "rankingScore": 2.17084105350208
+        "rankingScore": 2.240665089325398
+      }
+    },
+    {
+      "id": "topic-1-n8",
+      "label": "作者9",
+      "camp": "academic",
+      "summary": "合成议题 Alpha：摘要 9（合成数据）。",
+      "quote": "金句 9：观点要鲜明。",
+      "opinionType": "反对",
+      "opinionReason": [
+        "原因 9-1：该观点对议题持反对态度的主要依据",
+        "原因 9-2：基于内容中的论述逻辑与证据链分析"
+      ],
+      "keyPoint": [
+        "核心论点 9-1：该回答最关键的主张（合成数据）",
+        "核心论点 9-2：次要论证方向与补充观点",
+        "核心论点 9-3：隐含的前提假设与推论"
+      ],
+      "predictionScore": {
+        "predictionDeviation": 0.30000000000000004
+      },
+      "author": {
+        "name": "用户_topic-1_8",
+        "badgeText": "认证"
+      },
+      "voteUpCount": 44,
+      "publishedAt": "2026-05-02T12:00:00.000Z",
+      "timestamp": 1777723200000,
+      "zhihu": {
+        "zhihuTitle": "合成议题 Alpha - 问题 9",
+        "contentType": "Answer",
+        "contentId": "topic-1-n8",
+        "contentText": "这是合成议题 Alpha中第9个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。",
+        "url": "https://www.zhihu.com/question/example/answer/topic-1-n8",
+        "commentCount": 6,
+        "voteUpCount": 44,
+        "authorName": "用户_topic-1_8",
+        "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n8_l.jpg",
+        "authorBadge": "https://pic1.zhimg.com/v2-badge_l.png",
+        "authorBadgeText": "认证",
+        "editTime": 1777723200,
+        "authorityLevel": "0",
+        "rankingScore": 2.405691003226773
+      }
+    },
+    {
+      "id": "topic-1-n9",
+      "label": "作者10",
+      "camp": "radical",
+      "summary": "合成议题 Alpha：摘要 10（合成数据）。",
+      "quote": "金句 10：观点要鲜明。",
+      "opinionType": "赞成",
+      "opinionReason": [
+        "原因 10-1：该观点对议题持赞成态度的主要依据",
+        "原因 10-2：基于内容中的论述逻辑与证据链分析"
+      ],
+      "keyPoint": [
+        "核心论点 10-1：该回答最关键的主张（合成数据）",
+        "核心论点 10-2：次要论证方向与补充观点",
+        "核心论点 10-3：隐含的前提假设与推论"
+      ],
+      "predictionScore": {
+        "predictionDeviation": 0.4
+      },
+      "author": {
+        "name": "用户_topic-1_9",
+        "badgeText": ""
+      },
+      "voteUpCount": 37,
+      "publishedAt": "2026-05-03T12:00:00.000Z",
+      "timestamp": 1777809600000,
+      "zhihu": {
+        "zhihuTitle": "合成议题 Alpha - 问题 10",
+        "contentType": "Answer",
+        "contentId": "topic-1-n9",
+        "contentText": "这是合成议题 Alpha中第10个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。",
+        "url": "https://www.zhihu.com/question/example/answer/topic-1-n9",
+        "commentCount": 3,
+        "voteUpCount": 37,
+        "authorName": "用户_topic-1_9",
+        "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n9_l.jpg",
+        "authorBadge": "",
+        "authorBadgeText": "",
+        "editTime": 1777809600,
+        "authorityLevel": "1",
+        "rankingScore": 2.137084719406072
       }
     }
   ],
@@ -382,6 +476,20 @@
       "target": "topic-1-n4",
       "kind": "clash",
       "label": "跨阵营总争议"
+    },
+    {
+      "id": "topic-1-e6",
+      "source": "topic-1-n5",
+      "target": "topic-1-n6",
+      "kind": "agree",
+      "label": "数据共识"
+    },
+    {
+      "id": "topic-1-e7",
+      "source": "topic-1-n6",
+      "target": "topic-1-n7",
+      "kind": "clash",
+      "label": "解读分歧"
     }
   ]
 }

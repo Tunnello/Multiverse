@@ -17,12 +17,17 @@ const manifest = {
   topics: topicDefs.map((t) => ({ id: t.id, label: t.label, dataUrl: `/data/${t.id}.json` })),
 };
 
+const DAY_MS = 24 * 60 * 60 * 1000;
+const BASE_DATE = new Date("2026-05-01T00:00:00Z").getTime(); // 2026-05-01 00:00 UTC
+
 function makeTopic(slug, title, nodeOffset) {
   const camps = ["academic", "radical", "experiential", "stakeholder"];
   const nodes = [];
-  for (let i = 0; i < 8; i++) {
-    const year = 2016 + (i % 5) * 2;
+  for (let i = 0; i < 10; i++) {
+    const dayOffset = i % 7; // 10 nodes across 7 days
+    const ts = BASE_DATE + dayOffset * DAY_MS + 12 * 3600 * 1000; // noon of each day
     const id = `${slug}-n${i + nodeOffset}`;
+    const dateStr = new Date(ts).toISOString().split("T")[0]; // "2026-05-01"
     nodes.push({
       id,
       // LLM 生成
@@ -44,20 +49,21 @@ function makeTopic(slug, title, nodeOffset) {
       // Python 从知乎搜索结果填充
       author: { name: `用户_${slug}_${i}`, badgeText: i % 2 === 0 ? "认证" : "" },
       voteUpCount: 100 - i * 7,
-      publishedAt: `${year}-05-01T12:00:00.000Z`,
+      publishedAt: `${dateStr}T12:00:00.000Z`,
+      timestamp: ts, // unix ms for G6 timebar
       zhihu: {
         zhihuTitle: `${title} - 问题 ${i + 1}`,
         contentType: "Answer",
         contentId: id,
         contentText: `这是${title}中第${i + 1}个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。`,
         url: `https://www.zhihu.com/question/example/answer/${id}`,
-        commentCount: (8 - i) * 3,
+        commentCount: (10 - i) * 3,
         voteUpCount: 100 - i * 7,
         authorName: `用户_${slug}_${i}`,
         authorAvatar: `https://picsum.zhimg.com/50/v2-${id}_l.jpg`,
         authorBadge: i % 2 === 0 ? "https://pic1.zhimg.com/v2-badge_l.png" : "",
         authorBadgeText: i % 2 === 0 ? "认证" : "",
-        editTime: new Date(`${year}-05-01T12:00:00.000Z`).getTime() / 1000,
+        editTime: ts / 1000, // unix seconds
         authorityLevel: i % 3 === 0 ? "1" : "0",
         rankingScore: 2.0 + Math.random() * 0.5,
       },
@@ -69,6 +75,8 @@ function makeTopic(slug, title, nodeOffset) {
     { id: `${slug}-e3`, source: nodes[2].id, target: nodes[3].id, kind: "complement", label: "补充案例" },
     { id: `${slug}-e4`, source: nodes[3].id, target: nodes[4].id, kind: "clash", label: "价值判断冲突" },
     { id: `${slug}-e5`, source: nodes[0].id, target: nodes[4].id, kind: "clash", label: "跨阵营总争议" },
+    { id: `${slug}-e6`, source: nodes[5].id, target: nodes[6].id, kind: "agree", label: "数据共识" },
+    { id: `${slug}-e7`, source: nodes[6].id, target: nodes[7].id, kind: "clash", label: "解读分歧" },
   ];
   return {
     schemaVersion: "1.0",
@@ -77,7 +85,7 @@ function makeTopic(slug, title, nodeOffset) {
       slug,
       sourceNote: "synthetic_fixture",
     },
-    timeRange: { minYear: 2016, maxYear: 2026 },
+    timeRange: { minYear: 2026, maxYear: 2026 },
     nodes,
     edges,
   };

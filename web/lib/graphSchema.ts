@@ -63,6 +63,7 @@ export const GraphNodeSchema = z.object({
   author: AuthorSchema,
   voteUpCount: z.number(),
   publishedAt: z.string(),
+  timestamp: z.number().optional(),
   zhihu: ZhihuItemMetaSchema,
 });
 

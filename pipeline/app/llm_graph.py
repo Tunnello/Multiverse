@@ -114,6 +114,8 @@ def _enrich_graph(data: Dict[str, Any], items: List[Dict[str, Any]]) -> Dict[str
         }
         node["voteUpCount"] = item.get("VoteUpCount", 0)
         node["publishedAt"] = _format_published_at(item.get("EditTime"))
+        edit_time = item.get("EditTime")
+        node["timestamp"] = float(edit_time * 1000) if edit_time else None
         node["zhihu"] = _build_zhihu_meta(item).model_dump()
 
     return data

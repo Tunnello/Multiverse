@@ -79,6 +79,7 @@ class GraphNode(BaseModel):
     author: Author
     voteUpCount: int
     publishedAt: str
+    timestamp: Optional[float] = None  # unix ms for G6 timebar, from EditTime
     zhihu: ZhihuItemMeta
 
 
