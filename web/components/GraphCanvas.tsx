@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { Graph } from "@antv/g6";
 import type { GraphEdge, GraphNode } from "@/lib/graphSchema";
 import { OPINION_COLOR } from "@/lib/campColors";
-import { THEMES, type ThemeKey } from "@/lib/themes";
+import { THEMES, type ThemeKey, type ThemeConfig } from "@/lib/themes";
 
 type Props = {
   nodes: GraphNode[];
@@ -113,53 +113,60 @@ function formatEdges(edges: GraphEdge[]) {
   }));
 }
 
+function buildNodeOptions(cfg: ThemeConfig) {
+  return {
+    style: {
+      fill: (d: { data?: { color?: string } }) => d.data?.color ?? "#888",
+      labelText: (d: { data?: { author?: { name?: string } } }) =>
+        d.data?.author?.name ?? "",
+      labelFill: cfg.nodeLabelFill,
+      labelFontSize: 11,
+      labelPlacement: "bottom" as const,
+      labelOffsetY: 6,
+    },
+    state: {
+      selected: {
+        stroke: "#FACC15",
+        lineWidth: 3,
+        halo: true,
+        haloFill: "#FACC15",
+        haloOpacity: 0.25,
+        haloStrokeWidth: 0,
+      },
+    },
+  };
+}
+
+function buildEdgeOptions(cfg: ThemeConfig) {
+  return {
+    style: {
+      stroke: (d: { data?: { kind?: string } }) =>
+        d.data?.kind === "clash" ? "#F87171" : cfg.edgeStroke,
+      lineDash: (d: { data?: { lineDash?: number[] } }) => d.data?.lineDash,
+    },
+  };
+}
+
 export function GraphCanvas({ nodes, edges, onSelect, themeKey }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const graphRef = useRef<Graph | null>(null);
   const onSelectRef = useRef(onSelect);
   const layoutRef = useRef<Promise<void> | null>(null);
-  const themeRef = useRef(THEMES[themeKey]);
 
   onSelectRef.current = onSelect;
-  themeRef.current = THEMES[themeKey];
 
   // Create graph once on mount
   useEffect(() => {
     if (!containerRef.current) return;
 
+    const cfg = THEMES[themeKey];
     const graph = new Graph({
       container: containerRef.current,
       width: containerRef.current.clientWidth,
       height: containerRef.current.clientHeight,
       data: { nodes: formatNodes(nodes), edges: formatEdges(edges) },
-      node: {
-        style: {
-          fill: (d: { data?: { color?: string } }) => d.data?.color ?? "#888",
-          labelText: (d: { data?: { author?: { name?: string } } }) =>
-            d.data?.author?.name ?? "",
-          labelFill: () => themeRef.current.nodeLabelFill,
-          labelFontSize: 11,
-          labelPlacement: "bottom",
-          labelOffsetY: 6,
-        },
-        state: {
-          selected: {
-            stroke: "#FACC15",
-            lineWidth: 3,
-            halo: true,
-            haloFill: "#FACC15",
-            haloOpacity: 0.25,
-            haloStrokeWidth: 0,
-          },
-        },
-      },
-      edge: {
-        style: {
-          stroke: (d: { data?: { kind?: string } }) =>
-            d.data?.kind === "clash" ? "#F87171" : themeRef.current.edgeStroke,
-          lineDash: (d: { data?: { lineDash?: number[] } }) => d.data?.lineDash,
-        },
-      },
+      node: buildNodeOptions(cfg),
+      edge: buildEdgeOptions(cfg),
       layout: {
         type: "d3-force",
         animation: true,
@@ -197,12 +204,12 @@ export function GraphCanvas({ nodes, edges, onSelect, themeKey }: Props) {
       ],
       autoFit: "view",
       padding: [10, 0, 160, 0],
-      theme: themeRef.current.g6Theme,
+      theme: cfg.g6Theme,
       plugins: [
         {
           key: "background",
           type: "background",
-          background: themeRef.current.background,
+          background: cfg.background,
         },
         {
           type: "tooltip",
@@ -221,6 +228,13 @@ export function GraphCanvas({ nodes, edges, onSelect, themeKey }: Props) {
           height: 100,
           loop: false,
           timebarType: "chart",
+          getTime: (d: { data?: { timestamp?: number } }) => {
+            const ts = d.data?.timestamp;
+            if (!ts) return 0;
+            const date = new Date(ts);
+            date.setUTCHours(0, 0, 0, 0);
+            return date.getTime();
+          },
         },
       ],
     });
@@ -272,7 +286,8 @@ export function GraphCanvas({ nodes, edges, onSelect, themeKey }: Props) {
 
     const cfg = THEMES[themeKey];
     graph.updatePlugin({ key: "background", background: cfg.background });
-    graph.setOptions({ theme: cfg.g6Theme });
+    graph.setNode(buildNodeOptions(cfg));
+    graph.setEdge(buildEdgeOptions(cfg));
     graph.draw();
   }, [themeKey]);
 
