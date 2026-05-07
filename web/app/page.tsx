@@ -11,6 +11,7 @@ import { GraphDocumentSchema } from "@/lib/graphSchema";
 import { ManifestSchema } from "@/lib/manifestSchema";
 import type { GraphDocument, GraphEdge, GraphNode } from "@/lib/graphSchema";
 import type { Manifest } from "@/lib/manifestSchema";
+import { THEMES, type ThemeKey } from "@/lib/themes";
 
 export default function Home() {
   const [manifest, setManifest] = useState<Manifest | null>(null);
@@ -19,6 +20,7 @@ export default function Home() {
   const [selectedTopicUrl, setSelectedTopicUrl] = useState("/data/topic-1.json");
   const [year, setYear] = useState(2026);
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
+  const [themeKey, setThemeKey] = useState<ThemeKey>("dark");
 
   useEffect(() => {
     fetch("/data/manifest.json")
@@ -68,7 +70,15 @@ export default function Home() {
           selectedId={selectedTopicId}
           onSelect={handleTopicSelect}
         />
-        <div className="w-[100px] shrink-0" />
+        <select
+          value={themeKey}
+          onChange={(e) => setThemeKey(e.target.value as ThemeKey)}
+          className="bg-zinc-800 border border-zinc-600 text-zinc-300 text-sm rounded px-2 py-1 shrink-0 focus:outline-none focus:border-zinc-400"
+        >
+          {Object.entries(THEMES).map(([key, cfg]) => (
+            <option key={key} value={key}>{cfg.label}</option>
+          ))}
+        </select>
       </header>
 
       <div className="flex-1 flex overflow-hidden relative">
@@ -77,6 +87,7 @@ export default function Home() {
             nodes={filtered.nodes as GraphNode[]}
             edges={filtered.edges as GraphEdge[]}
             onSelect={setSelectedNodeId}
+            themeKey={themeKey}
           />
         </div>
         <Sidebar
