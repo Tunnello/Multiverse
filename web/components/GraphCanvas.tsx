@@ -144,6 +144,12 @@ function buildEdgeOptions(cfg: ThemeConfig) {
         d.data?.kind === "clash" ? "#F87171" : cfg.edgeStroke,
       lineDash: (d: { data?: { lineDash?: number[] } }) => d.data?.lineDash,
     },
+    state: {
+      selected: {
+        stroke: "#FACC15",
+        lineWidth: 2.5,
+      },
+    },
   };
 }
 
@@ -170,6 +176,8 @@ export function GraphCanvas({ nodes, edges, onSelect, themeKey }: Props) {
       layout: {
         type: "d3-force",
         animation: true,
+        alphaDecay: 0.08,
+        alphaMin: 0.05,
         manyBody: {
           strength: -150,
         },
@@ -182,7 +190,6 @@ export function GraphCanvas({ nodes, edges, onSelect, themeKey }: Props) {
         y: {
           strength: 0.05,
         },
-        alphaDecay: 0.015,
       },
       behaviors: [
         { type: "drag-canvas" },
@@ -191,6 +198,8 @@ export function GraphCanvas({ nodes, edges, onSelect, themeKey }: Props) {
         {
           type: "click-select",
           state: "selected",
+          degree: 1,
+          neighborState: "selected",
           onClick: (event: unknown) => {
             const ev = event as { targetType?: string; target?: { id?: string } };
             if (ev.targetType === "node" && ev.target?.id) {
@@ -202,7 +211,6 @@ export function GraphCanvas({ nodes, edges, onSelect, themeKey }: Props) {
           },
         },
       ],
-      autoFit: "view",
       padding: [10, 0, 160, 0],
       theme: cfg.g6Theme,
       plugins: [
@@ -285,10 +293,13 @@ export function GraphCanvas({ nodes, edges, onSelect, themeKey }: Props) {
     if (!graph?.rendered) return;
 
     const cfg = THEMES[themeKey];
-    graph.updatePlugin({ key: "background", background: cfg.background });
-    graph.setNode(buildNodeOptions(cfg));
-    graph.setEdge(buildEdgeOptions(cfg));
-    graph.draw();
+    const apply = async () => {
+      graph.updatePlugin({ key: "background", background: cfg.background });
+      graph.setNode(buildNodeOptions(cfg));
+      graph.setEdge(buildEdgeOptions(cfg));
+      try { await graph.draw(); } catch {}
+    };
+    apply();
   }, [themeKey]);
 
   return <div ref={containerRef} className="h-full w-full min-h-[480px]" />;
