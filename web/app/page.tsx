@@ -64,7 +64,7 @@ export default function Home() {
   return (
     <div className="flex flex-col h-screen bg-zinc-900 text-white">
       <header className="flex items-center justify-between px-4 py-3 border-b border-zinc-700 bg-zinc-950">
-        <h1 className="text-lg font-bold shrink-0 mr-6">观点对撞机</h1>
+        <h1 className="text-lg font-bold shrink-0 mr-6">谢邀·观点多元宇宙</h1>
         <TopicSearch
           manifest={manifest}
           selectedId={selectedTopicId}
