@@ -12,7 +12,7 @@
   "nodes": [
     {
       "id": "topic-1-n0",
-      "label": "AI产品观察",
+      "label": "猫叔看世界",
       "camp": "academic",
       "summary": "豆包作为大厂出品的AI助手，收费是商业化必经之路。相比竞品仍具性价比，关键在于能否保持服务质量。",
       "quote": "豆包收费是必然的，关键是收多少、怎么收。",
@@ -30,7 +30,7 @@
         "predictionDeviation": 0
       },
       "author": {
-        "name": "AI产品观察",
+        "name": "猫叔看世界",
         "badgeText": "认证"
       },
       "voteUpCount": 100,
@@ -44,18 +44,18 @@
         "url": "https://www.zhihu.com/question/example/answer/topic-1-n0",
         "commentCount": 30,
         "voteUpCount": 100,
-        "authorName": "AI产品观察",
+        "authorName": "猫叔看世界",
         "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n0_l.jpg",
         "authorBadge": "https://pic1.zhimg.com/v2-badge_l.png",
         "authorBadgeText": "认证",
         "editTime": 1777636800,
         "authorityLevel": "1",
-        "rankingScore": 2.1731340430657102
+        "rankingScore": 2.2899333560808808
       }
     },
     {
       "id": "topic-1-n1",
-      "label": "科技财经晚报",
+      "label": "南林子",
       "camp": "radical",
       "summary": "从免费到付费是互联网产品的普遍规律。豆包的功能深度和算力成本决定了收费是迟早的事。",
       "quote": "好产品值得付费，但不能一上来就收割用户。",
@@ -73,7 +73,7 @@
         "predictionDeviation": 0.1
       },
       "author": {
-        "name": "科技财经晚报",
+        "name": "南林子",
         "badgeText": ""
       },
       "voteUpCount": 93,
@@ -87,18 +87,18 @@
         "url": "https://www.zhihu.com/question/example/answer/topic-1-n1",
         "commentCount": 27,
         "voteUpCount": 93,
-        "authorName": "科技财经晚报",
+        "authorName": "南林子",
         "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n1_l.jpg",
         "authorBadge": "",
         "authorBadgeText": "",
         "editTime": 1777723200,
         "authorityLevel": "0",
-        "rankingScore": 2.019607829111087
+        "rankingScore": 2.4504732164955825
       }
     },
     {
       "id": "topic-1-n2",
-      "label": "独立开发者小李",
+      "label": "aurora",
       "camp": "experiential",
       "summary": "支持收费，但不支持当前定价。对于轻度用户来说，按量计费或低价套餐会更友好。",
       "quote": "免费时代的豆包改变了我的工作方式，我愿意为价值付费。",
@@ -116,7 +116,7 @@
         "predictionDeviation": 0.2
       },
       "author": {
-        "name": "独立开发者小李",
+        "name": "aurora",
         "badgeText": "认证"
       },
       "voteUpCount": 86,
@@ -130,18 +130,18 @@
         "url": "https://www.zhihu.com/question/example/answer/topic-1-n2",
         "commentCount": 24,
         "voteUpCount": 86,
-        "authorName": "独立开发者小李",
+        "authorName": "aurora",
         "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n2_l.jpg",
         "authorBadge": "https://pic1.zhimg.com/v2-badge_l.png",
         "authorBadgeText": "认证",
         "editTime": 1777809600,
         "authorityLevel": "0",
-        "rankingScore": 2.4632454960389145
+        "rankingScore": 2.0510356074584255
       }
     },
     {
       "id": "topic-1-n3",
-      "label": "用户权益联盟",
+      "label": "欠断西",
       "camp": "stakeholder",
       "summary": "豆包收费模式不够透明，用户对免费功能突然受限感到不满。应当明确区分免费和付费边界。",
       "quote": "收费的底线是：不要让用户觉得被背叛了。",
@@ -159,7 +159,7 @@
         "predictionDeviation": 0.30000000000000004
       },
       "author": {
-        "name": "用户权益联盟",
+        "name": "欠断西",
         "badgeText": ""
       },
       "voteUpCount": 79,
@@ -173,18 +173,18 @@
         "url": "https://www.zhihu.com/question/example/answer/topic-1-n3",
         "commentCount": 21,
         "voteUpCount": 79,
-        "authorName": "用户权益联盟",
+        "authorName": "欠断西",
         "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n3_l.jpg",
         "authorBadge": "",
         "authorBadgeText": "",
         "editTime": 1777896000,
         "authorityLevel": "1",
-        "rankingScore": 2.2581427327965624
+        "rankingScore": 2.114584790120375
       }
     },
     {
       "id": "topic-1-n4",
-      "label": "行业分析师老王",
+      "label": "无意觅知音",
       "camp": "academic",
       "summary": "相比海外AI产品动辄20美元/月的定价，豆包的定价相对克制。但面向国内用户仍偏高。",
       "quote": "从免费到付费，需要一个平滑的过渡方案。",
@@ -202,7 +202,7 @@
         "predictionDeviation": 0.4
       },
       "author": {
-        "name": "行业分析师老王",
+        "name": "无意觅知音",
         "badgeText": "认证"
       },
       "voteUpCount": 72,
@@ -216,18 +216,18 @@
         "url": "https://www.zhihu.com/question/example/answer/topic-1-n4",
         "commentCount": 18,
         "voteUpCount": 72,
-        "authorName": "行业分析师老王",
+        "authorName": "无意觅知音",
         "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n4_l.jpg",
         "authorBadge": "https://pic1.zhimg.com/v2-badge_l.png",
         "authorBadgeText": "认证",
         "editTime": 1777982400,
         "authorityLevel": "0",
-        "rankingScore": 2.040832668060815
+        "rankingScore": 2.0285356748132957
       }
     },
     {
       "id": "topic-1-n5",
-      "label": "程序员大刘",
+      "label": "闲人电影",
       "camp": "radical",
       "summary": "豆包收费背后是大模型推理成本的现实压力。长期免费补贴不可持续，理性看待商业化。",
       "quote": "AI产品的付费时代已经到来，我们需要适应的不是要不要付费，而是如何合理付费。",
@@ -245,7 +245,7 @@
         "predictionDeviation": 0
       },
       "author": {
-        "name": "程序员大刘",
+        "name": "闲人电影",
         "badgeText": ""
       },
       "voteUpCount": 65,
@@ -259,18 +259,18 @@
         "url": "https://www.zhihu.com/question/example/answer/topic-1-n5",
         "commentCount": 15,
         "voteUpCount": 65,
-        "authorName": "程序员大刘",
+        "authorName": "闲人电影",
         "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n5_l.jpg",
         "authorBadge": "",
         "authorBadgeText": "",
         "editTime": 1778068800,
         "authorityLevel": "0",
-        "rankingScore": 2.461151867376531
+        "rankingScore": 2.1207291506933
       }
     },
     {
       "id": "topic-1-n6",
-      "label": "效率工具控",
+      "label": "深夜书房",
       "camp": "experiential",
       "summary": "收费可以，但请保留基础免费额度。学生和低收入群体需要可负担的AI工具。",
       "quote": "豆包的收费策略直接影响我对字节系产品的整体好感度。",
@@ -288,7 +288,7 @@
         "predictionDeviation": 0.1
       },
       "author": {
-        "name": "效率工具控",
+        "name": "深夜书房",
         "badgeText": "认证"
       },
       "voteUpCount": 58,
@@ -302,18 +302,18 @@
         "url": "https://www.zhihu.com/question/example/answer/topic-1-n6",
         "commentCount": 12,
         "voteUpCount": 58,
-        "authorName": "效率工具控",
+        "authorName": "深夜书房",
         "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n6_l.jpg",
         "authorBadge": "https://pic1.zhimg.com/v2-badge_l.png",
         "authorBadgeText": "认证",
         "editTime": 1778155200,
         "authorityLevel": "1",
-        "rankingScore": 2.3054491515719793
+        "rankingScore": 2.1141738913075514
       }
     },
     {
       "id": "topic-1-n7",
-      "label": "知识付费研究",
+      "label": "科技边角料",
       "camp": "stakeholder",
       "summary": "豆包的差异化能力（长文处理、深度思考）值得付费，但日常对话功能不应受限过多。",
       "quote": "定价应该和功能匹配，不能一刀切。",
@@ -331,7 +331,7 @@
         "predictionDeviation": 0.2
       },
       "author": {
-        "name": "知识付费研究",
+        "name": "科技边角料",
         "badgeText": ""
       },
       "voteUpCount": 51,
@@ -345,18 +345,18 @@
         "url": "https://www.zhihu.com/question/example/answer/topic-1-n7",
         "commentCount": 9,
         "voteUpCount": 51,
-        "authorName": "知识付费研究",
+        "authorName": "科技边角料",
         "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n7_l.jpg",
         "authorBadge": "",
         "authorBadgeText": "",
         "editTime": 1777636800,
         "authorityLevel": "0",
-        "rankingScore": 2.101542846185654
+        "rankingScore": 2.1417959516950846
       }
     },
     {
       "id": "topic-1-n8",
-      "label": "普通用户小张",
+      "label": "北风拾贰",
       "camp": "academic",
       "summary": "作为早期用户，能理解收费决策。但建议分阶段实施，给用户足够的适应期。",
       "quote": "作为AI重度用户，我愿意为高质量服务付费，但需要清晰的权益说明。",
@@ -374,7 +374,7 @@
         "predictionDeviation": 0.30000000000000004
       },
       "author": {
-        "name": "普通用户小张",
+        "name": "北风拾贰",
         "badgeText": "认证"
       },
       "voteUpCount": 44,
@@ -388,18 +388,18 @@
         "url": "https://www.zhihu.com/question/example/answer/topic-1-n8",
         "commentCount": 6,
         "voteUpCount": 44,
-        "authorName": "普通用户小张",
+        "authorName": "北风拾贰",
         "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n8_l.jpg",
         "authorBadge": "https://pic1.zhimg.com/v2-badge_l.png",
         "authorBadgeText": "认证",
         "editTime": 1777723200,
         "authorityLevel": "0",
-        "rankingScore": 2.015402237066279
+        "rankingScore": 2.2289565819860964
       }
     },
     {
       "id": "topic-1-n9",
-      "label": "产品经理老陈",
+      "label": "江南落叶",
       "camp": "radical",
       "summary": "行业趋势如此，文心一言、通义千问也在探索收费。豆包的优势在于字节生态的整合能力。",
       "quote": "豆包收费是对AI行业的一个风向标事件。",
@@ -417,7 +417,7 @@
         "predictionDeviation": 0.4
       },
       "author": {
-        "name": "产品经理老陈",
+        "name": "江南落叶",
         "badgeText": ""
       },
       "voteUpCount": 37,
@@ -431,13 +431,13 @@
         "url": "https://www.zhihu.com/question/example/answer/topic-1-n9",
         "commentCount": 3,
         "voteUpCount": 37,
-        "authorName": "产品经理老陈",
+        "authorName": "江南落叶",
         "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n9_l.jpg",
         "authorBadge": "",
         "authorBadgeText": "",
         "editTime": 1777809600,
         "authorityLevel": "1",
-        "rankingScore": 2.031123592504477
+        "rankingScore": 2.047287174870398
       }
     }
   ],
