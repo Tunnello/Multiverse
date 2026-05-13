@@ -65,8 +65,8 @@ export default function Home() {
 
   return (
     <div className="flex flex-col h-screen bg-zinc-900 text-white">
-      <header className="flex items-center justify-between px-4 py-3 border-b border-zinc-700 bg-zinc-950">
-        <h1 className="text-lg font-bold shrink-0 mr-6">谢邀·观点多元宇宙</h1>
+      <header className="flex items-center justify-between px-2 md:px-4 py-2 md:py-3 border-b border-zinc-700 bg-zinc-950">
+        <h1 className="text-sm md:text-lg font-bold shrink-0 mr-2 md:mr-6">谢邀·观点多元宇宙</h1>
         <TopicSearch
           manifest={manifest}
           selectedId={selectedTopicId}
@@ -92,8 +92,8 @@ export default function Home() {
             themeKey={themeKey}
           />
 
-          <div className="absolute bottom-6 left-3 z-30 pointer-events-none">
-            <div className="bg-white/90 border border-gray-200 rounded-lg px-3 py-2.5 space-y-2 text-xs backdrop-blur shadow-sm">
+          <div className="absolute bottom-6 left-1 md:left-3 z-30 pointer-events-none">
+            <div className="bg-white/90 border border-gray-200 rounded-lg px-2 md:px-3 py-1.5 md:py-2.5 space-y-1.5 md:space-y-2 text-[10px] md:text-xs backdrop-blur shadow-sm">
               <div className="flex items-center gap-4">
                 <span className="text-gray-400 shrink-0">立场</span>
                 {["赞成", "中立", "反对"].map((o) => (
@@ -120,15 +120,17 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <Sidebar
-          doc={doc}
-          manifest={manifest}
-          selectedTopicId={selectedTopicId}
-          onTopicSelect={handleTopicSelect}
-        />
+        <div className="hidden md:block shrink-0">
+          <Sidebar
+            doc={doc}
+            manifest={manifest}
+            selectedTopicId={selectedTopicId}
+            onTopicSelect={handleTopicSelect}
+          />
+        </div>
       </div>
 
-      <footer className="border-t border-zinc-700 bg-zinc-950 px-4 py-3">
+      <footer className="border-t border-zinc-700 bg-zinc-950 px-2 md:px-4 py-2 md:py-3">
         <YearSlider
           minYear={doc.timeRange.minYear}
           maxYear={doc.timeRange.maxYear}
