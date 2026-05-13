@@ -21,6 +21,7 @@ export default function Home() {
   const [year, setYear] = useState(2026);
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
   const [themeKey, setThemeKey] = useState<ThemeKey>("yellow");
+  const [showWelcome, setShowWelcome] = useState(true);
 
   useEffect(() => {
     fetch("/data/manifest.json")
@@ -111,6 +112,24 @@ export default function Home() {
         node={selectedNode as GraphNode | null}
         onClose={() => setSelectedNodeId(null)}
       />
+
+      {showWelcome && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+          <div className="bg-zinc-900 border border-zinc-700 rounded-xl p-6 w-[360px] shadow-2xl">
+            <h2 className="text-base font-bold text-white mb-3">欢迎</h2>
+            <ul className="space-y-2 text-sm text-zinc-400 leading-relaxed mb-4">
+              <li>· 点击节点看各方意见，双击直达知乎原文</li>
+              <li>· 拖动底部时间轴，看看观点怎么随时间变化</li>
+            </ul>
+            <button
+              onClick={() => setShowWelcome(false)}
+              className="w-full py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-sm transition-colors"
+            >
+              知道了
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
