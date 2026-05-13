@@ -8,9 +8,7 @@ const dataDir = join(root, "public", "data");
 mkdirSync(dataDir, { recursive: true });
 
 const topicDefs = [
-  { id: "topic-1", label: "合成议题 Alpha", slug: "topic-1", title: "合成议题 Alpha" },
-  { id: "topic-2", label: "合成议题 Beta", slug: "topic-2", title: "合成议题 Beta" },
-  { id: "topic-3", label: "合成议题 Gamma", slug: "topic-3", title: "合成议题 Gamma" },
+  { id: "topic-1", label: "怎么看待豆包收费？", slug: "topic-1", title: "怎么看待豆包收费？" },
 ];
 
 const manifest = {
@@ -18,65 +16,123 @@ const manifest = {
 };
 
 const DAY_MS = 24 * 60 * 60 * 1000;
-const BASE_DATE = new Date("2026-05-01T00:00:00Z").getTime(); // 2026-05-01 00:00 UTC
+const BASE_DATE = new Date("2026-05-01T00:00:00Z").getTime();
+
+const AUTHORS = [
+  "AI产品观察",
+  "科技财经晚报",
+  "独立开发者小李",
+  "用户权益联盟",
+  "行业分析师老王",
+  "程序员大刘",
+  "效率工具控",
+  "知识付费研究",
+  "普通用户小张",
+  "产品经理老陈",
+];
+
+const SUMMARIES = [
+  "豆包作为大厂出品的AI助手，收费是商业化必经之路。相比竞品仍具性价比，关键在于能否保持服务质量。",
+  "从免费到付费是互联网产品的普遍规律。豆包的功能深度和算力成本决定了收费是迟早的事。",
+  "支持收费，但不支持当前定价。对于轻度用户来说，按量计费或低价套餐会更友好。",
+  "豆包收费模式不够透明，用户对免费功能突然受限感到不满。应当明确区分免费和付费边界。",
+  "相比海外AI产品动辄20美元/月的定价，豆包的定价相对克制。但面向国内用户仍偏高。",
+  "豆包收费背后是大模型推理成本的现实压力。长期免费补贴不可持续，理性看待商业化。",
+  "收费可以，但请保留基础免费额度。学生和低收入群体需要可负担的AI工具。",
+  "豆包的差异化能力（长文处理、深度思考）值得付费，但日常对话功能不应受限过多。",
+  "作为早期用户，能理解收费决策。但建议分阶段实施，给用户足够的适应期。",
+  "行业趋势如此，文心一言、通义千问也在探索收费。豆包的优势在于字节生态的整合能力。",
+];
+
+const QUOTES = [
+  "豆包收费是必然的，关键是收多少、怎么收。",
+  "好产品值得付费，但不能一上来就收割用户。",
+  "免费时代的豆包改变了我的工作方式，我愿意为价值付费。",
+  "收费的底线是：不要让用户觉得被背叛了。",
+  "从免费到付费，需要一个平滑的过渡方案。",
+  "AI产品的付费时代已经到来，我们需要适应的不是要不要付费，而是如何合理付费。",
+  "豆包的收费策略直接影响我对字节系产品的整体好感度。",
+  "定价应该和功能匹配，不能一刀切。",
+  "作为AI重度用户，我愿意为高质量服务付费，但需要清晰的权益说明。",
+  "豆包收费是对AI行业的一个风向标事件。",
+];
+
+const KEY_POINTS = [
+  ["商业化是必然路径", "定价策略需要更灵活", "应保留基础免费额度"],
+  ["大模型推理成本高昂", "免费模式不可持续", "收费是负责的表现"],
+  ["竞品也在探索收费", "豆包性价比仍占优", "生态整合是核心竞争力"],
+  ["用户信任至关重要", "收费方式应当透明", "过渡期要足够长"],
+  ["收费与价值匹配是关键", "需要更多定价档位选择", "轻度用户应有低价方案"],
+  ["行业趋势不可逆", "需要建立付费心智", "豆包是先行者也是风向标"],
+  ["学生群体需要照顾", "教育用途应免费或优惠", "收费不应加剧数字鸿沟"],
+  ["长文和深度思考功能强大", "日常对话应有免费额度", "按功能维度收费更合理"],
+  ["给用户足够的适应期", "分阶段实施更稳妥", "积极沟通消解用户疑虑"],
+  ["字节生态优势明显", "多产品联动提升价值感", "收费是生态成熟的表现"],
+];
+
+const OPINION_REASONS = [
+  ["豆包作为头部AI产品，商业化是可持续发展的必要条件", "免费模式无法承担持续增长的算力消耗"],
+  ["国内AI市场需要建立健康的付费生态", "合理的收费才能支撑技术持续进步"],
+  ["大厂有能力提供低价方案", "规模化运营可以摊薄成本"],
+  ["当前定价对轻度用户不友好", "缺少阶梯式的定价方案"],
+  ["豆包的差异化功能确实创造了额外价值", "用户应当为独特价值付费"],
+  ["长期亏损运营对产品发展不利", "付费有助于提升服务质量"],
+  ["定价应参考国内消费水平", "与海外产品直接比较价格不公平"],
+];
+
+function pick(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
 
 function makeTopic(slug, title, nodeOffset) {
   const camps = ["academic", "radical", "experiential", "stakeholder"];
   const nodes = [];
   for (let i = 0; i < 10; i++) {
-    const dayOffset = i % 7; // 10 nodes across 7 days
-    const ts = BASE_DATE + dayOffset * DAY_MS + 12 * 3600 * 1000; // noon of each day
+    const dayOffset = i % 7;
+    const ts = BASE_DATE + dayOffset * DAY_MS + 12 * 3600 * 1000;
     const id = `${slug}-n${i + nodeOffset}`;
-    const dateStr = new Date(ts).toISOString().split("T")[0]; // "2026-05-01"
+    const dateStr = new Date(ts).toISOString().split("T")[0];
+    const opinionType = ["赞成", "中立", "反对"][i % 3];
     nodes.push({
       id,
-      // LLM 生成
-      label: `作者${i + 1}`,
+      label: AUTHORS[i],
       camp: camps[i % 4],
-      summary: `${title}：摘要 ${i + 1}（合成数据）。`,
-      quote: `金句 ${i + 1}：观点要鲜明。`,
-      opinionType: ["赞成", "中立", "反对"][i % 3],
-      opinionReason: [
-        `原因 ${i + 1}-1：该观点对议题持${["赞成", "中立", "反对"][i % 3]}态度的主要依据`,
-        `原因 ${i + 1}-2：基于内容中的论述逻辑与证据链分析`,
-      ],
-      keyPoint: [
-        `核心论点 ${i + 1}-1：该回答最关键的主张（合成数据）`,
-        `核心论点 ${i + 1}-2：次要论证方向与补充观点`,
-        `核心论点 ${i + 1}-3：隐含的前提假设与推论`,
-      ],
+      summary: SUMMARIES[i],
+      quote: QUOTES[i],
+      opinionType,
+      opinionReason: OPINION_REASONS[i % OPINION_REASONS.length],
+      keyPoint: KEY_POINTS[i],
       predictionScore: { predictionDeviation: (i % 5) * 0.1 },
-      // Python 从知乎搜索结果填充
-      author: { name: `用户_${slug}_${i}`, badgeText: i % 2 === 0 ? "认证" : "" },
+      author: { name: AUTHORS[i], badgeText: i % 2 === 0 ? "认证" : "" },
       voteUpCount: 100 - i * 7,
       publishedAt: `${dateStr}T12:00:00.000Z`,
-      timestamp: ts, // unix ms for G6 timebar
+      timestamp: ts,
       zhihu: {
-        zhihuTitle: `${title} - 问题 ${i + 1}`,
+        zhihuTitle: `怎么看待豆包收费？`,
         contentType: "Answer",
         contentId: id,
-        contentText: `这是${title}中第${i + 1}个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。`,
+        contentText: SUMMARIES[i],
         url: `https://www.zhihu.com/question/example/answer/${id}`,
         commentCount: (10 - i) * 3,
         voteUpCount: 100 - i * 7,
-        authorName: `用户_${slug}_${i}`,
+        authorName: AUTHORS[i],
         authorAvatar: `https://picsum.zhimg.com/50/v2-${id}_l.jpg`,
         authorBadge: i % 2 === 0 ? "https://pic1.zhimg.com/v2-badge_l.png" : "",
         authorBadgeText: i % 2 === 0 ? "认证" : "",
-        editTime: ts / 1000, // unix seconds
+        editTime: ts / 1000,
         authorityLevel: i % 3 === 0 ? "1" : "0",
         rankingScore: 2.0 + Math.random() * 0.5,
       },
     });
   }
   const edges = [
-    { id: `${slug}-e1`, source: nodes[0].id, target: nodes[1].id, kind: "clash", label: "方法论对立" },
-    { id: `${slug}-e2`, source: nodes[1].id, target: nodes[2].id, kind: "agree", label: "前提一致" },
-    { id: `${slug}-e3`, source: nodes[2].id, target: nodes[3].id, kind: "complement", label: "补充案例" },
+    { id: `${slug}-e1`, source: nodes[0].id, target: nodes[1].id, kind: "clash", label: "商业化路径之争" },
+    { id: `${slug}-e2`, source: nodes[1].id, target: nodes[2].id, kind: "agree", label: "定价策略共识" },
+    { id: `${slug}-e3`, source: nodes[2].id, target: nodes[3].id, kind: "complement", label: "用户权益补充" },
     { id: `${slug}-e4`, source: nodes[3].id, target: nodes[4].id, kind: "clash", label: "价值判断冲突" },
-    { id: `${slug}-e5`, source: nodes[0].id, target: nodes[4].id, kind: "clash", label: "跨阵营总争议" },
-    { id: `${slug}-e6`, source: nodes[5].id, target: nodes[6].id, kind: "agree", label: "数据共识" },
-    { id: `${slug}-e7`, source: nodes[6].id, target: nodes[7].id, kind: "clash", label: "解读分歧" },
+    { id: `${slug}-e5`, source: nodes[0].id, target: nodes[4].id, kind: "clash", label: "商业模式辩论" },
+    { id: `${slug}-e6`, source: nodes[5].id, target: nodes[6].id, kind: "agree", label: "成本问题共识" },
+    { id: `${slug}-e7`, source: nodes[6].id, target: nodes[7].id, kind: "clash", label: "定价方案分歧" },
   ];
   return {
     schemaVersion: "1.0",
@@ -93,12 +149,8 @@ function makeTopic(slug, title, nodeOffset) {
 
 const topics = [
   makeTopic(topicDefs[0].slug, topicDefs[0].title, 0),
-  makeTopic(topicDefs[1].slug, topicDefs[1].title, 100),
-  makeTopic(topicDefs[2].slug, topicDefs[2].title, 200),
 ];
 
 writeFileSync(join(dataDir, "manifest.json"), JSON.stringify(manifest, null, 2), "utf8");
 writeFileSync(join(dataDir, "topic-1.json"), JSON.stringify(topics[0], null, 2), "utf8");
-writeFileSync(join(dataDir, "topic-2.json"), JSON.stringify(topics[1], null, 2), "utf8");
-writeFileSync(join(dataDir, "topic-3.json"), JSON.stringify(topics[2], null, 2), "utf8");
-console.log("Wrote manifest + topic-1..3.json to public/data/");
+console.log("Wrote manifest + topic-1.json to public/data/");

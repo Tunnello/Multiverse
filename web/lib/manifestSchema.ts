@@ -9,7 +9,7 @@ export const ManifestSchema = z.object({
         dataUrl: z.string().startsWith("/"),
       })
     )
-    .length(3),
+    .min(1),
 });
 
 export type Manifest = z.infer<typeof ManifestSchema>;

@@ -20,7 +20,7 @@ export default function Home() {
   const [selectedTopicUrl, setSelectedTopicUrl] = useState("/data/topic-1.json");
   const [year, setYear] = useState(2026);
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
-  const [themeKey, setThemeKey] = useState<ThemeKey>("dark");
+  const [themeKey, setThemeKey] = useState<ThemeKey>("yellow");
 
   useEffect(() => {
     fetch("/data/manifest.json")

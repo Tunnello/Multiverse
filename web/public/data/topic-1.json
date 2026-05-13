@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "topic": {
-    "title": "合成议题 Alpha",
+    "title": "怎么看待豆包收费？",
     "slug": "topic-1",
     "sourceNote": "synthetic_fixture"
   },
@@ -12,432 +12,432 @@
   "nodes": [
     {
       "id": "topic-1-n0",
-      "label": "作者1",
+      "label": "AI产品观察",
       "camp": "academic",
-      "summary": "合成议题 Alpha：摘要 1（合成数据）。",
-      "quote": "金句 1：观点要鲜明。",
+      "summary": "豆包作为大厂出品的AI助手，收费是商业化必经之路。相比竞品仍具性价比，关键在于能否保持服务质量。",
+      "quote": "豆包收费是必然的，关键是收多少、怎么收。",
       "opinionType": "赞成",
       "opinionReason": [
-        "原因 1-1：该观点对议题持赞成态度的主要依据",
-        "原因 1-2：基于内容中的论述逻辑与证据链分析"
+        "豆包作为头部AI产品，商业化是可持续发展的必要条件",
+        "免费模式无法承担持续增长的算力消耗"
       ],
       "keyPoint": [
-        "核心论点 1-1：该回答最关键的主张（合成数据）",
-        "核心论点 1-2：次要论证方向与补充观点",
-        "核心论点 1-3：隐含的前提假设与推论"
+        "商业化是必然路径",
+        "定价策略需要更灵活",
+        "应保留基础免费额度"
       ],
       "predictionScore": {
         "predictionDeviation": 0
       },
       "author": {
-        "name": "用户_topic-1_0",
+        "name": "AI产品观察",
         "badgeText": "认证"
       },
       "voteUpCount": 100,
       "publishedAt": "2026-05-01T12:00:00.000Z",
       "timestamp": 1777636800000,
       "zhihu": {
-        "zhihuTitle": "合成议题 Alpha - 问题 1",
+        "zhihuTitle": "怎么看待豆包收费？",
         "contentType": "Answer",
         "contentId": "topic-1-n0",
-        "contentText": "这是合成议题 Alpha中第1个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。",
+        "contentText": "豆包作为大厂出品的AI助手，收费是商业化必经之路。相比竞品仍具性价比，关键在于能否保持服务质量。",
         "url": "https://www.zhihu.com/question/example/answer/topic-1-n0",
         "commentCount": 30,
         "voteUpCount": 100,
-        "authorName": "用户_topic-1_0",
+        "authorName": "AI产品观察",
         "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n0_l.jpg",
         "authorBadge": "https://pic1.zhimg.com/v2-badge_l.png",
         "authorBadgeText": "认证",
         "editTime": 1777636800,
         "authorityLevel": "1",
-        "rankingScore": 2.1282586525945115
+        "rankingScore": 2.1731340430657102
       }
     },
     {
       "id": "topic-1-n1",
-      "label": "作者2",
+      "label": "科技财经晚报",
       "camp": "radical",
-      "summary": "合成议题 Alpha：摘要 2（合成数据）。",
-      "quote": "金句 2：观点要鲜明。",
+      "summary": "从免费到付费是互联网产品的普遍规律。豆包的功能深度和算力成本决定了收费是迟早的事。",
+      "quote": "好产品值得付费，但不能一上来就收割用户。",
       "opinionType": "中立",
       "opinionReason": [
-        "原因 2-1：该观点对议题持中立态度的主要依据",
-        "原因 2-2：基于内容中的论述逻辑与证据链分析"
+        "国内AI市场需要建立健康的付费生态",
+        "合理的收费才能支撑技术持续进步"
       ],
       "keyPoint": [
-        "核心论点 2-1：该回答最关键的主张（合成数据）",
-        "核心论点 2-2：次要论证方向与补充观点",
-        "核心论点 2-3：隐含的前提假设与推论"
+        "大模型推理成本高昂",
+        "免费模式不可持续",
+        "收费是负责的表现"
       ],
       "predictionScore": {
         "predictionDeviation": 0.1
       },
       "author": {
-        "name": "用户_topic-1_1",
+        "name": "科技财经晚报",
         "badgeText": ""
       },
       "voteUpCount": 93,
       "publishedAt": "2026-05-02T12:00:00.000Z",
       "timestamp": 1777723200000,
       "zhihu": {
-        "zhihuTitle": "合成议题 Alpha - 问题 2",
+        "zhihuTitle": "怎么看待豆包收费？",
         "contentType": "Answer",
         "contentId": "topic-1-n1",
-        "contentText": "这是合成议题 Alpha中第2个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。",
+        "contentText": "从免费到付费是互联网产品的普遍规律。豆包的功能深度和算力成本决定了收费是迟早的事。",
         "url": "https://www.zhihu.com/question/example/answer/topic-1-n1",
         "commentCount": 27,
         "voteUpCount": 93,
-        "authorName": "用户_topic-1_1",
+        "authorName": "科技财经晚报",
         "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n1_l.jpg",
         "authorBadge": "",
         "authorBadgeText": "",
         "editTime": 1777723200,
         "authorityLevel": "0",
-        "rankingScore": 2.1301983153936996
+        "rankingScore": 2.019607829111087
       }
     },
     {
       "id": "topic-1-n2",
-      "label": "作者3",
+      "label": "独立开发者小李",
       "camp": "experiential",
-      "summary": "合成议题 Alpha：摘要 3（合成数据）。",
-      "quote": "金句 3：观点要鲜明。",
+      "summary": "支持收费，但不支持当前定价。对于轻度用户来说，按量计费或低价套餐会更友好。",
+      "quote": "免费时代的豆包改变了我的工作方式，我愿意为价值付费。",
       "opinionType": "反对",
       "opinionReason": [
-        "原因 3-1：该观点对议题持反对态度的主要依据",
-        "原因 3-2：基于内容中的论述逻辑与证据链分析"
+        "大厂有能力提供低价方案",
+        "规模化运营可以摊薄成本"
       ],
       "keyPoint": [
-        "核心论点 3-1：该回答最关键的主张（合成数据）",
-        "核心论点 3-2：次要论证方向与补充观点",
-        "核心论点 3-3：隐含的前提假设与推论"
+        "竞品也在探索收费",
+        "豆包性价比仍占优",
+        "生态整合是核心竞争力"
       ],
       "predictionScore": {
         "predictionDeviation": 0.2
       },
       "author": {
-        "name": "用户_topic-1_2",
+        "name": "独立开发者小李",
         "badgeText": "认证"
       },
       "voteUpCount": 86,
       "publishedAt": "2026-05-03T12:00:00.000Z",
       "timestamp": 1777809600000,
       "zhihu": {
-        "zhihuTitle": "合成议题 Alpha - 问题 3",
+        "zhihuTitle": "怎么看待豆包收费？",
         "contentType": "Answer",
         "contentId": "topic-1-n2",
-        "contentText": "这是合成议题 Alpha中第3个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。",
+        "contentText": "支持收费，但不支持当前定价。对于轻度用户来说，按量计费或低价套餐会更友好。",
         "url": "https://www.zhihu.com/question/example/answer/topic-1-n2",
         "commentCount": 24,
         "voteUpCount": 86,
-        "authorName": "用户_topic-1_2",
+        "authorName": "独立开发者小李",
         "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n2_l.jpg",
         "authorBadge": "https://pic1.zhimg.com/v2-badge_l.png",
         "authorBadgeText": "认证",
         "editTime": 1777809600,
         "authorityLevel": "0",
-        "rankingScore": 2.0057320599272157
+        "rankingScore": 2.4632454960389145
       }
     },
     {
       "id": "topic-1-n3",
-      "label": "作者4",
+      "label": "用户权益联盟",
       "camp": "stakeholder",
-      "summary": "合成议题 Alpha：摘要 4（合成数据）。",
-      "quote": "金句 4：观点要鲜明。",
+      "summary": "豆包收费模式不够透明，用户对免费功能突然受限感到不满。应当明确区分免费和付费边界。",
+      "quote": "收费的底线是：不要让用户觉得被背叛了。",
       "opinionType": "赞成",
       "opinionReason": [
-        "原因 4-1：该观点对议题持赞成态度的主要依据",
-        "原因 4-2：基于内容中的论述逻辑与证据链分析"
+        "当前定价对轻度用户不友好",
+        "缺少阶梯式的定价方案"
       ],
       "keyPoint": [
-        "核心论点 4-1：该回答最关键的主张（合成数据）",
-        "核心论点 4-2：次要论证方向与补充观点",
-        "核心论点 4-3：隐含的前提假设与推论"
+        "用户信任至关重要",
+        "收费方式应当透明",
+        "过渡期要足够长"
       ],
       "predictionScore": {
         "predictionDeviation": 0.30000000000000004
       },
       "author": {
-        "name": "用户_topic-1_3",
+        "name": "用户权益联盟",
         "badgeText": ""
       },
       "voteUpCount": 79,
       "publishedAt": "2026-05-04T12:00:00.000Z",
       "timestamp": 1777896000000,
       "zhihu": {
-        "zhihuTitle": "合成议题 Alpha - 问题 4",
+        "zhihuTitle": "怎么看待豆包收费？",
         "contentType": "Answer",
         "contentId": "topic-1-n3",
-        "contentText": "这是合成议题 Alpha中第4个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。",
+        "contentText": "豆包收费模式不够透明，用户对免费功能突然受限感到不满。应当明确区分免费和付费边界。",
         "url": "https://www.zhihu.com/question/example/answer/topic-1-n3",
         "commentCount": 21,
         "voteUpCount": 79,
-        "authorName": "用户_topic-1_3",
+        "authorName": "用户权益联盟",
         "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n3_l.jpg",
         "authorBadge": "",
         "authorBadgeText": "",
         "editTime": 1777896000,
         "authorityLevel": "1",
-        "rankingScore": 2.0240880428058796
+        "rankingScore": 2.2581427327965624
       }
     },
     {
       "id": "topic-1-n4",
-      "label": "作者5",
+      "label": "行业分析师老王",
       "camp": "academic",
-      "summary": "合成议题 Alpha：摘要 5（合成数据）。",
-      "quote": "金句 5：观点要鲜明。",
+      "summary": "相比海外AI产品动辄20美元/月的定价，豆包的定价相对克制。但面向国内用户仍偏高。",
+      "quote": "从免费到付费，需要一个平滑的过渡方案。",
       "opinionType": "中立",
       "opinionReason": [
-        "原因 5-1：该观点对议题持中立态度的主要依据",
-        "原因 5-2：基于内容中的论述逻辑与证据链分析"
+        "豆包的差异化功能确实创造了额外价值",
+        "用户应当为独特价值付费"
       ],
       "keyPoint": [
-        "核心论点 5-1：该回答最关键的主张（合成数据）",
-        "核心论点 5-2：次要论证方向与补充观点",
-        "核心论点 5-3：隐含的前提假设与推论"
+        "收费与价值匹配是关键",
+        "需要更多定价档位选择",
+        "轻度用户应有低价方案"
       ],
       "predictionScore": {
         "predictionDeviation": 0.4
       },
       "author": {
-        "name": "用户_topic-1_4",
+        "name": "行业分析师老王",
         "badgeText": "认证"
       },
       "voteUpCount": 72,
       "publishedAt": "2026-05-05T12:00:00.000Z",
       "timestamp": 1777982400000,
       "zhihu": {
-        "zhihuTitle": "合成议题 Alpha - 问题 5",
+        "zhihuTitle": "怎么看待豆包收费？",
         "contentType": "Answer",
         "contentId": "topic-1-n4",
-        "contentText": "这是合成议题 Alpha中第5个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。",
+        "contentText": "相比海外AI产品动辄20美元/月的定价，豆包的定价相对克制。但面向国内用户仍偏高。",
         "url": "https://www.zhihu.com/question/example/answer/topic-1-n4",
         "commentCount": 18,
         "voteUpCount": 72,
-        "authorName": "用户_topic-1_4",
+        "authorName": "行业分析师老王",
         "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n4_l.jpg",
         "authorBadge": "https://pic1.zhimg.com/v2-badge_l.png",
         "authorBadgeText": "认证",
         "editTime": 1777982400,
         "authorityLevel": "0",
-        "rankingScore": 2.2862716084711217
+        "rankingScore": 2.040832668060815
       }
     },
     {
       "id": "topic-1-n5",
-      "label": "作者6",
+      "label": "程序员大刘",
       "camp": "radical",
-      "summary": "合成议题 Alpha：摘要 6（合成数据）。",
-      "quote": "金句 6：观点要鲜明。",
+      "summary": "豆包收费背后是大模型推理成本的现实压力。长期免费补贴不可持续，理性看待商业化。",
+      "quote": "AI产品的付费时代已经到来，我们需要适应的不是要不要付费，而是如何合理付费。",
       "opinionType": "反对",
       "opinionReason": [
-        "原因 6-1：该观点对议题持反对态度的主要依据",
-        "原因 6-2：基于内容中的论述逻辑与证据链分析"
+        "长期亏损运营对产品发展不利",
+        "付费有助于提升服务质量"
       ],
       "keyPoint": [
-        "核心论点 6-1：该回答最关键的主张（合成数据）",
-        "核心论点 6-2：次要论证方向与补充观点",
-        "核心论点 6-3：隐含的前提假设与推论"
+        "行业趋势不可逆",
+        "需要建立付费心智",
+        "豆包是先行者也是风向标"
       ],
       "predictionScore": {
         "predictionDeviation": 0
       },
       "author": {
-        "name": "用户_topic-1_5",
+        "name": "程序员大刘",
         "badgeText": ""
       },
       "voteUpCount": 65,
       "publishedAt": "2026-05-06T12:00:00.000Z",
       "timestamp": 1778068800000,
       "zhihu": {
-        "zhihuTitle": "合成议题 Alpha - 问题 6",
+        "zhihuTitle": "怎么看待豆包收费？",
         "contentType": "Answer",
         "contentId": "topic-1-n5",
-        "contentText": "这是合成议题 Alpha中第6个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。",
+        "contentText": "豆包收费背后是大模型推理成本的现实压力。长期免费补贴不可持续，理性看待商业化。",
         "url": "https://www.zhihu.com/question/example/answer/topic-1-n5",
         "commentCount": 15,
         "voteUpCount": 65,
-        "authorName": "用户_topic-1_5",
+        "authorName": "程序员大刘",
         "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n5_l.jpg",
         "authorBadge": "",
         "authorBadgeText": "",
         "editTime": 1778068800,
         "authorityLevel": "0",
-        "rankingScore": 2.233187014618534
+        "rankingScore": 2.461151867376531
       }
     },
     {
       "id": "topic-1-n6",
-      "label": "作者7",
+      "label": "效率工具控",
       "camp": "experiential",
-      "summary": "合成议题 Alpha：摘要 7（合成数据）。",
-      "quote": "金句 7：观点要鲜明。",
+      "summary": "收费可以，但请保留基础免费额度。学生和低收入群体需要可负担的AI工具。",
+      "quote": "豆包的收费策略直接影响我对字节系产品的整体好感度。",
       "opinionType": "赞成",
       "opinionReason": [
-        "原因 7-1：该观点对议题持赞成态度的主要依据",
-        "原因 7-2：基于内容中的论述逻辑与证据链分析"
+        "定价应参考国内消费水平",
+        "与海外产品直接比较价格不公平"
       ],
       "keyPoint": [
-        "核心论点 7-1：该回答最关键的主张（合成数据）",
-        "核心论点 7-2：次要论证方向与补充观点",
-        "核心论点 7-3：隐含的前提假设与推论"
+        "学生群体需要照顾",
+        "教育用途应免费或优惠",
+        "收费不应加剧数字鸿沟"
       ],
       "predictionScore": {
         "predictionDeviation": 0.1
       },
       "author": {
-        "name": "用户_topic-1_6",
+        "name": "效率工具控",
         "badgeText": "认证"
       },
       "voteUpCount": 58,
       "publishedAt": "2026-05-07T12:00:00.000Z",
       "timestamp": 1778155200000,
       "zhihu": {
-        "zhihuTitle": "合成议题 Alpha - 问题 7",
+        "zhihuTitle": "怎么看待豆包收费？",
         "contentType": "Answer",
         "contentId": "topic-1-n6",
-        "contentText": "这是合成议题 Alpha中第7个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。",
+        "contentText": "收费可以，但请保留基础免费额度。学生和低收入群体需要可负担的AI工具。",
         "url": "https://www.zhihu.com/question/example/answer/topic-1-n6",
         "commentCount": 12,
         "voteUpCount": 58,
-        "authorName": "用户_topic-1_6",
+        "authorName": "效率工具控",
         "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n6_l.jpg",
         "authorBadge": "https://pic1.zhimg.com/v2-badge_l.png",
         "authorBadgeText": "认证",
         "editTime": 1778155200,
         "authorityLevel": "1",
-        "rankingScore": 2.0696797832743936
+        "rankingScore": 2.3054491515719793
       }
     },
     {
       "id": "topic-1-n7",
-      "label": "作者8",
+      "label": "知识付费研究",
       "camp": "stakeholder",
-      "summary": "合成议题 Alpha：摘要 8（合成数据）。",
-      "quote": "金句 8：观点要鲜明。",
+      "summary": "豆包的差异化能力（长文处理、深度思考）值得付费，但日常对话功能不应受限过多。",
+      "quote": "定价应该和功能匹配，不能一刀切。",
       "opinionType": "中立",
       "opinionReason": [
-        "原因 8-1：该观点对议题持中立态度的主要依据",
-        "原因 8-2：基于内容中的论述逻辑与证据链分析"
+        "豆包作为头部AI产品，商业化是可持续发展的必要条件",
+        "免费模式无法承担持续增长的算力消耗"
       ],
       "keyPoint": [
-        "核心论点 8-1：该回答最关键的主张（合成数据）",
-        "核心论点 8-2：次要论证方向与补充观点",
-        "核心论点 8-3：隐含的前提假设与推论"
+        "长文和深度思考功能强大",
+        "日常对话应有免费额度",
+        "按功能维度收费更合理"
       ],
       "predictionScore": {
         "predictionDeviation": 0.2
       },
       "author": {
-        "name": "用户_topic-1_7",
+        "name": "知识付费研究",
         "badgeText": ""
       },
       "voteUpCount": 51,
       "publishedAt": "2026-05-01T12:00:00.000Z",
       "timestamp": 1777636800000,
       "zhihu": {
-        "zhihuTitle": "合成议题 Alpha - 问题 8",
+        "zhihuTitle": "怎么看待豆包收费？",
         "contentType": "Answer",
         "contentId": "topic-1-n7",
-        "contentText": "这是合成议题 Alpha中第8个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。",
+        "contentText": "豆包的差异化能力（长文处理、深度思考）值得付费，但日常对话功能不应受限过多。",
         "url": "https://www.zhihu.com/question/example/answer/topic-1-n7",
         "commentCount": 9,
         "voteUpCount": 51,
-        "authorName": "用户_topic-1_7",
+        "authorName": "知识付费研究",
         "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n7_l.jpg",
         "authorBadge": "",
         "authorBadgeText": "",
         "editTime": 1777636800,
         "authorityLevel": "0",
-        "rankingScore": 2.240665089325398
+        "rankingScore": 2.101542846185654
       }
     },
     {
       "id": "topic-1-n8",
-      "label": "作者9",
+      "label": "普通用户小张",
       "camp": "academic",
-      "summary": "合成议题 Alpha：摘要 9（合成数据）。",
-      "quote": "金句 9：观点要鲜明。",
+      "summary": "作为早期用户，能理解收费决策。但建议分阶段实施，给用户足够的适应期。",
+      "quote": "作为AI重度用户，我愿意为高质量服务付费，但需要清晰的权益说明。",
       "opinionType": "反对",
       "opinionReason": [
-        "原因 9-1：该观点对议题持反对态度的主要依据",
-        "原因 9-2：基于内容中的论述逻辑与证据链分析"
+        "国内AI市场需要建立健康的付费生态",
+        "合理的收费才能支撑技术持续进步"
       ],
       "keyPoint": [
-        "核心论点 9-1：该回答最关键的主张（合成数据）",
-        "核心论点 9-2：次要论证方向与补充观点",
-        "核心论点 9-3：隐含的前提假设与推论"
+        "给用户足够的适应期",
+        "分阶段实施更稳妥",
+        "积极沟通消解用户疑虑"
       ],
       "predictionScore": {
         "predictionDeviation": 0.30000000000000004
       },
       "author": {
-        "name": "用户_topic-1_8",
+        "name": "普通用户小张",
         "badgeText": "认证"
       },
       "voteUpCount": 44,
       "publishedAt": "2026-05-02T12:00:00.000Z",
       "timestamp": 1777723200000,
       "zhihu": {
-        "zhihuTitle": "合成议题 Alpha - 问题 9",
+        "zhihuTitle": "怎么看待豆包收费？",
         "contentType": "Answer",
         "contentId": "topic-1-n8",
-        "contentText": "这是合成议题 Alpha中第9个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。",
+        "contentText": "作为早期用户，能理解收费决策。但建议分阶段实施，给用户足够的适应期。",
         "url": "https://www.zhihu.com/question/example/answer/topic-1-n8",
         "commentCount": 6,
         "voteUpCount": 44,
-        "authorName": "用户_topic-1_8",
+        "authorName": "普通用户小张",
         "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n8_l.jpg",
         "authorBadge": "https://pic1.zhimg.com/v2-badge_l.png",
         "authorBadgeText": "认证",
         "editTime": 1777723200,
         "authorityLevel": "0",
-        "rankingScore": 2.405691003226773
+        "rankingScore": 2.015402237066279
       }
     },
     {
       "id": "topic-1-n9",
-      "label": "作者10",
+      "label": "产品经理老陈",
       "camp": "radical",
-      "summary": "合成议题 Alpha：摘要 10（合成数据）。",
-      "quote": "金句 10：观点要鲜明。",
+      "summary": "行业趋势如此，文心一言、通义千问也在探索收费。豆包的优势在于字节生态的整合能力。",
+      "quote": "豆包收费是对AI行业的一个风向标事件。",
       "opinionType": "赞成",
       "opinionReason": [
-        "原因 10-1：该观点对议题持赞成态度的主要依据",
-        "原因 10-2：基于内容中的论述逻辑与证据链分析"
+        "大厂有能力提供低价方案",
+        "规模化运营可以摊薄成本"
       ],
       "keyPoint": [
-        "核心论点 10-1：该回答最关键的主张（合成数据）",
-        "核心论点 10-2：次要论证方向与补充观点",
-        "核心论点 10-3：隐含的前提假设与推论"
+        "字节生态优势明显",
+        "多产品联动提升价值感",
+        "收费是生态成熟的表现"
       ],
       "predictionScore": {
         "predictionDeviation": 0.4
       },
       "author": {
-        "name": "用户_topic-1_9",
+        "name": "产品经理老陈",
         "badgeText": ""
       },
       "voteUpCount": 37,
       "publishedAt": "2026-05-03T12:00:00.000Z",
       "timestamp": 1777809600000,
       "zhihu": {
-        "zhihuTitle": "合成议题 Alpha - 问题 10",
+        "zhihuTitle": "怎么看待豆包收费？",
         "contentType": "Answer",
         "contentId": "topic-1-n9",
-        "contentText": "这是合成议题 Alpha中第10个回答的完整内容（合成数据模拟）。包含观点论证、数据支持和结论。",
+        "contentText": "行业趋势如此，文心一言、通义千问也在探索收费。豆包的优势在于字节生态的整合能力。",
         "url": "https://www.zhihu.com/question/example/answer/topic-1-n9",
         "commentCount": 3,
         "voteUpCount": 37,
-        "authorName": "用户_topic-1_9",
+        "authorName": "产品经理老陈",
         "authorAvatar": "https://picsum.zhimg.com/50/v2-topic-1-n9_l.jpg",
         "authorBadge": "",
         "authorBadgeText": "",
         "editTime": 1777809600,
         "authorityLevel": "1",
-        "rankingScore": 2.137084719406072
+        "rankingScore": 2.031123592504477
       }
     }
   ],
@@ -447,21 +447,21 @@
       "source": "topic-1-n0",
       "target": "topic-1-n1",
       "kind": "clash",
-      "label": "方法论对立"
+      "label": "商业化路径之争"
     },
     {
       "id": "topic-1-e2",
       "source": "topic-1-n1",
       "target": "topic-1-n2",
       "kind": "agree",
-      "label": "前提一致"
+      "label": "定价策略共识"
     },
     {
       "id": "topic-1-e3",
       "source": "topic-1-n2",
       "target": "topic-1-n3",
       "kind": "complement",
-      "label": "补充案例"
+      "label": "用户权益补充"
     },
     {
       "id": "topic-1-e4",
@@ -475,21 +475,21 @@
       "source": "topic-1-n0",
       "target": "topic-1-n4",
       "kind": "clash",
-      "label": "跨阵营总争议"
+      "label": "商业模式辩论"
     },
     {
       "id": "topic-1-e6",
       "source": "topic-1-n5",
       "target": "topic-1-n6",
       "kind": "agree",
-      "label": "数据共识"
+      "label": "成本问题共识"
     },
     {
       "id": "topic-1-e7",
       "source": "topic-1-n6",
       "target": "topic-1-n7",
       "kind": "clash",
-      "label": "解读分歧"
+      "label": "定价方案分歧"
     }
   ]
 }
