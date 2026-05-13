@@ -3,13 +3,6 @@
 import { useState } from "react";
 import type { GraphDocument } from "@/lib/graphSchema";
 import type { Manifest } from "@/lib/manifestSchema";
-import { OPINION_COLOR } from "@/lib/campColors";
-
-const OPINION_LEGEND: { key: string; label: string; desc: string }[] = [
-  { key: "赞成", label: "赞成", desc: "支持该议题的观点立场" },
-  { key: "中立", label: "中立", desc: "对该议题持中立态度" },
-  { key: "反对", label: "反对", desc: "反对该议题的观点立场" },
-];
 
 type Props = {
   doc: GraphDocument;
@@ -97,47 +90,6 @@ export function Sidebar({ doc, manifest, selectedTopicId, onTopicSelect }: Props
               </div>
             </section>
 
-            {/* Legend */}
-            <section>
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">
-                立场图例
-              </h3>
-              <div className="space-y-2">
-                {OPINION_LEGEND.map((o) => (
-                  <div key={o.key} className="flex gap-2 items-start">
-                    <span
-                      className="mt-0.5 w-3 h-3 rounded-full shrink-0"
-                      style={{ backgroundColor: OPINION_COLOR[o.key] }}
-                    />
-                    <div>
-                      <span className="text-xs font-medium text-zinc-200">{o.label}</span>
-                      <p className="text-[11px] text-zinc-500 leading-tight">{o.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            {/* Edge legend */}
-            <section>
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">
-                边类型
-              </h3>
-              <div className="space-y-2">
-                <div className="flex gap-2 items-center">
-                  <span className="w-4 h-0.5 rounded shrink-0" style={{ backgroundColor: "#F87171" }} />
-                  <span className="text-xs text-zinc-300">对撞（冲突观点）</span>
-                </div>
-                <div className="flex gap-2 items-center">
-                  <span className="w-4 h-0.5 rounded shrink-0" style={{ backgroundColor: "#94A3B8" }} />
-                  <span className="text-xs text-zinc-300">一致 / 补充</span>
-                </div>
-                <div className="flex gap-2 items-center">
-                  <span className="w-4 h-0.5 rounded shrink-0" style={{ borderTop: "2px dashed #F87171" }} />
-                  <span className="text-xs text-zinc-300">对撞虚线</span>
-                </div>
-              </div>
-            </section>
           </div>
         </div>
       )}

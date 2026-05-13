@@ -12,6 +12,7 @@ import { ManifestSchema } from "@/lib/manifestSchema";
 import type { GraphDocument, GraphEdge, GraphNode } from "@/lib/graphSchema";
 import type { Manifest } from "@/lib/manifestSchema";
 import { THEMES, type ThemeKey } from "@/lib/themes";
+import { OPINION_COLOR } from "@/lib/campColors";
 
 export default function Home() {
   const [manifest, setManifest] = useState<Manifest | null>(null);
@@ -50,6 +51,10 @@ export default function Home() {
     setSelectedTopicUrl(dataUrl);
   }, []);
 
+  const filtered = doc ? filterGraphByYear(doc, year) : { nodes: [], edges: [] };
+  const selectedNode =
+    filtered.nodes.find((n: GraphNode) => n.id === selectedNodeId) ?? null;
+
   if (!doc || !manifest) {
     return (
       <div className="flex items-center justify-center h-screen bg-zinc-900 text-zinc-500">
@@ -57,10 +62,6 @@ export default function Home() {
       </div>
     );
   }
-
-  const filtered = filterGraphByYear(doc, year);
-  const selectedNode =
-    filtered.nodes.find((n) => n.id === selectedNodeId) ?? null;
 
   return (
     <div className="flex flex-col h-screen bg-zinc-900 text-white">
@@ -90,6 +91,34 @@ export default function Home() {
             onSelect={setSelectedNodeId}
             themeKey={themeKey}
           />
+
+          <div className="absolute bottom-6 left-3 z-30 pointer-events-none">
+            <div className="bg-white/90 border border-gray-200 rounded-lg px-3 py-2.5 space-y-2 text-xs backdrop-blur shadow-sm">
+              <div className="flex items-center gap-4">
+                <span className="text-gray-400 shrink-0">立场</span>
+                {["赞成", "中立", "反对"].map((o) => (
+                  <span key={o} className="flex items-center gap-1.5">
+                    <span
+                      className="w-2.5 h-2.5 rounded-full shrink-0"
+                      style={{ backgroundColor: OPINION_COLOR[o] }}
+                    />
+                    <span className="text-gray-600">{o}</span>
+                  </span>
+                ))}
+              </div>
+              <div className="flex items-center gap-4">
+                <span className="text-gray-400 shrink-0">连线</span>
+                <span className="flex items-center gap-1.5">
+                  <span className="w-4 h-0.5 rounded shrink-0" style={{ backgroundColor: "#F87171" }} />
+                  <span className="text-gray-600">对撞</span>
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <span className="w-4 h-0.5 rounded shrink-0" style={{ backgroundColor: "#94A3B8" }} />
+                  <span className="text-gray-600">一致</span>
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
         <Sidebar
           doc={doc}

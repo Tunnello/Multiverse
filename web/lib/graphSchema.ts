@@ -13,6 +13,7 @@ export const EdgeKindEnum = z.enum(["agree", "clash", "complement"]);
 
 export const AuthorSchema = z.object({
   name: z.string(),
+  avatar: z.string().optional(),
   badgeText: z.string().optional(),
   avatarUrl: z.string().optional(),
 });
@@ -60,6 +61,7 @@ export const GraphNodeSchema = z.object({
   predictionScore: PredictionScoreSchema,
 
   // Python 从知乎搜索结果填充
+  avatar: z.string().optional(),
   author: AuthorSchema,
   voteUpCount: z.number(),
   publishedAt: z.string(),

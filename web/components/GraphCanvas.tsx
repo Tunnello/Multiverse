@@ -115,14 +115,19 @@ function formatEdges(edges: GraphEdge[]) {
 
 function buildNodeOptions(cfg: ThemeConfig) {
   return {
+    type: "image",
     style: {
-      fill: (d: { data?: { color?: string } }) => d.data?.color ?? "#888",
+      size: 44,
+      radius: 22,
+      stroke: (d: { data?: { color?: string } }) => d.data?.color ?? "#888",
+      lineWidth: 10,
+      src: (d: { data?: { avatar?: string } }) => d.data?.avatar ?? "",
       labelText: (d: { data?: { author?: { name?: string } } }) =>
         d.data?.author?.name ?? "",
       labelFill: cfg.nodeLabelFill,
       labelFontSize: 11,
       labelPlacement: "bottom" as const,
-      labelOffsetY: 6,
+      labelOffsetY: 8,
     },
     state: {
       selected: {
@@ -176,19 +181,19 @@ export function GraphCanvas({ nodes, edges, onSelect, themeKey }: Props) {
       layout: {
         type: "d3-force",
         animation: true,
-        alphaDecay: 0.08,
-        alphaMin: 0.05,
+        alphaDecay: 0.15,
+        alphaMin: 0.03,
         manyBody: {
-          strength: -150,
+          strength: -200,
         },
         preventOverlap: true,
-        nodeSize: 30,
-        linkDistance: 150,
+        nodeSize: 60,
+        linkDistance: 300,
         x: {
-          strength: 0.05,
+          strength: 0.03,
         },
         y: {
-          strength: 0.05,
+          strength: 0.03,
         },
       },
       behaviors: [

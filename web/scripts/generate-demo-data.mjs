@@ -31,6 +31,17 @@ const AUTHORS = [
   "江南落叶",
 ];
 
+const AVATARS = [
+  "https://picx.zhimg.com/50/v2-c6d365b44f8926a3d3bf50a2d4c3d9c4_l.jpg?source=bbf6831d",
+  "https://pic1.zhimg.com/50/310d85e8d_l.jpg?source=bbf6831d",
+  "https://pica.zhimg.com/50/v2-528610a41128dd29cb935585eec2b653_l.jpg?source=bbf6831d",
+  "https://pic1.zhimg.com/50/fca79cac273e40941b8a3777d85e162b_l.jpg?source=bbf6831d",
+  "https://picx.zhimg.com/50/v2-4b85eadec22bb93f680819d59867442a_l.jpg?source=bbf6831d",
+  "https://pic1.zhimg.com/50/v2-d1d85327e48f35b7d30ff8d045e179f3_l.jpg?source=bbf6831d",
+  "https://picx.zhimg.com/50/v2-fc124fe8707c258995754bb5972d7fc9_l.jpg?source=bbf6831d",
+  "https://picx.zhimg.com/50/v2-43524d2d5735bd4c6e8731109eca9ed2_l.jpg?source=bbf6831d",
+];
+
 const SUMMARIES = [
   "豆包作为大厂出品的AI助手，收费是商业化必经之路。相比竞品仍具性价比，关键在于能否保持服务质量。",
   "从免费到付费是互联网产品的普遍规律。豆包的功能深度和算力成本决定了收费是迟早的事。",
@@ -103,7 +114,8 @@ function makeTopic(slug, title, nodeOffset) {
       opinionReason: OPINION_REASONS[i % OPINION_REASONS.length],
       keyPoint: KEY_POINTS[i],
       predictionScore: { predictionDeviation: (i % 5) * 0.1 },
-      author: { name: AUTHORS[i], badgeText: i % 2 === 0 ? "认证" : "" },
+      avatar: AVATARS[i % AVATARS.length],
+      author: { name: AUTHORS[i], avatar: AVATARS[i % AVATARS.length], badgeText: i % 2 === 0 ? "认证" : "" },
       voteUpCount: 100 - i * 7,
       publishedAt: `${dateStr}T12:00:00.000Z`,
       timestamp: ts,
@@ -116,7 +128,7 @@ function makeTopic(slug, title, nodeOffset) {
         commentCount: (10 - i) * 3,
         voteUpCount: 100 - i * 7,
         authorName: AUTHORS[i],
-        authorAvatar: `https://picsum.zhimg.com/50/v2-${id}_l.jpg`,
+        authorAvatar: AVATARS[i % AVATARS.length],
         authorBadge: i % 2 === 0 ? "https://pic1.zhimg.com/v2-badge_l.png" : "",
         authorBadgeText: i % 2 === 0 ? "认证" : "",
         editTime: ts / 1000,
