@@ -115,13 +115,14 @@ function formatEdges(edges: GraphEdge[]) {
 
 function buildNodeOptions(cfg: ThemeConfig) {
   return {
-    type: "image",
+    type: "circle",
     style: {
-      size: 44,
-      radius: 22,
-      stroke: (d: { data?: { color?: string } }) => d.data?.color ?? "#888",
-      lineWidth: 10,
-      src: (d: { data?: { avatar?: string } }) => d.data?.avatar ?? "",
+      size: 52,
+      fill: (d: { data?: { color?: string } }) => d.data?.color ?? "#888",
+      iconSrc: (d: { data?: { avatar?: string } }) => d.data?.avatar ?? "",
+      iconWidth: 40,
+      iconHeight: 40,
+      iconRadius: 20,
       labelText: (d: { data?: { author?: { name?: string } } }) =>
         d.data?.author?.name ?? "",
       labelFill: cfg.nodeLabelFill,
